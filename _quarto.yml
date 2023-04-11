@@ -1,0 +1,30 @@
+project: 
+  type: website
+  
+website: 
+  title: "Kansas Economic Data"
+  navbar: 
+    background: dark
+    search: true
+    right: 
+      - text: "Home"
+        file: Quartopage.qmd
+      - text: "About"
+        file: about.qmd
+        
+    page-footer: |
+      <footer style="background-color: #333333; color: white; text-align: left; padding: 10px 20px;">
+        <div style="display: flex; align-items: center;">
+          <img src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="GitHub logo" height="20" style="margin-right: 10px;">
+          <a href="https://github.com/yourusername/yourrepository" style="color: white;">GitHub</a>
+        </div>
+        <div style="text-align: right;">
+          &copy; Rph Mwanza, 2023. All rights reserved.
+        </div>
+      </footer>
+
+format: 
+  html:
+    embed-resources: true
+    page-layout: full
+    toc: true
