@@ -4421,7 +4421,7 @@ vertical-align: -.125em;
 }</script>
 
 
-<style type="text/css"></style>
+<style type="text/css">footer {position: fixed;left: 0;bottom: 0;width: 100%;background-color: #333333;color: white;text-align: left;padding: 10px 20px;}</style>
 </head>
 
 <body class="nav-fixed">
@@ -4473,6 +4473,7 @@ vertical-align: -.125em;
 <p>Pandoc’s enhanced version of Markdown includes syntax for <a href="https://pandoc.org/MANUAL.html#tables">tables</a>, <a href="https://pandoc.org/MANUAL.html#definition-lists">definition lists</a>, <a href="https://pandoc.org/MANUAL.html#metadata-blocks">metadata blocks</a>, <a href="https://pandoc.org/MANUAL.html#footnotes">footnotes</a>, <a href="https://pandoc.org/MANUAL.html#citations">citations</a>, <a href="https://pandoc.org/MANUAL.html#math">math</a>, and much more. See below under <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc’s Markdown</a>.</p>
 <p>Pandoc has a modular design: it consists of a set of readers, which parse text in a given format and produce a native representation of the document (an <em>abstract syntax tree</em> or AST), and a set of writers, which convert this native representation into a target format. Thus, adding an input or output format requires only adding a reader or writer. Users can also run custom <a href="https://pandoc.org/filters.html">pandoc filters</a> to modify the intermediate AST.</p>
 <p>Because pandoc’s intermediate representation of a document is less expressive than many of the formats it converts between, one should not expect perfect conversions between every format and every other. Pandoc attempts to preserve the structural elements of a document, but not formatting details such as margin size. And some document elements, such as complex tables, may not fit into pandoc’s simple document model. While conversions from pandoc’s Markdown to all formats aspire to be perfect, conversions from formats more expressive than pandoc’s Markdown can be expected to be lossy.</p>
+<p>{{ page-footer }}</p>
 
 
 
