@@ -1,0 +1,230 @@
+---
+toc: false
+author: Nigel Soria
+badges: true
+categories: [labor statistics, unemployment rate, essential worker, work context]
+permalink: /unemployment-calc/
+image: images/ks-unemp.png
+---
+
+# **Kansas Unemployment During COVID-19**
+
+# **Background**
+
+Many businesses are experiencing large decreases in sales and revenue as a result of state and local stay-at-home orders associated with the COVID-19 pandemic, and these businesses are already responding to potential solvency and liquidity problems by laying off workers. Accordingly, many are wondering how high the unemployment rate might be in the second quarter of 2020.
+
+Not all businesses, sectors, or occupations will experience the negative shock from COVID-19 equally. Many workers, such as those in professional services, may be able to work from home and continue their activities with minimal disruption. Other workers, such as those who work in occupations that involve direct physical contact with customers (e.g., barbers and hairstylists), are likely to see their jobs negatively affected by social-distancing measures and stay-at-home orders.
+
+In this post, I use Kansas-specific data on occupation composition to replicate [recent analysis](https://www.stlouisfed.org/on-the-economy/2020/march/back-envelope-estimates-next-quarters-unemployment-rate "Back-of-the-Envelope Estimates of Next Quarter’s Unemployment Rate") by the St. Louis Fed, which attempts to arrive at an estimate of what the unemployment rate may look like at the end of the second quarter of 2020. The St. Louis Fed estimates a 32.1 percent unemployment rate for the second quarter of 2020.
+
+### **Current Labor Statistics**
+
+I start with the state of the Kansas economy as of February 2020. According to the Kansas Department of Labor (via [KLIC](https://klic.dol.ks.gov/vosnet/Default.aspx)), the civilian labor force consisted of approxiately 1.5 million people, and the seasonally-adjusted unemployment rate was 3.1%, which means there were around 46,000 unemployed Kansans in February. In the calculations that follow, I assumed the labor force remains constant and that none of the currently unemployed individuals would be able to find a job in the second quarter of 2020.
+
+```{python}
+#| hidden: true
+import numpy as np
+import pandas as pd
+import requests
+import scipy.stats as ss
+import matplotlib as mpl
+import json
+import plotly.graph_objects as go
+from urllib.request import urlopen
+from IPython.display import Image
+from IPython.display import HTML
+
+```
+
+```{python}
+#| echo: false
+# feb 2020 labor force and unemployment rate from KDOL
+lf_feb20 = 1496507.0
+unemp_feb20 = 0.031
+
+print('Current labor statistics from the Kansas Department of Labor (February 2020):')
+print('Civilian Labor Force = {l:,.0f}'.format(l=lf_feb20))
+print('Unemployment Rate = {r:0.1f}%'.format(r=unemp_feb20*100))
+```
+
+# **Methodology**
+
+To estimate the Kansas unemployment rate for the second quarter of 2020, I follow the analysis by the St. Louis Fed and combine occupation composition data from the Bureau of Labor Statistics with work context data from O\*Net Online to compute how many jobs might be exposed to layoff risk due to social distancing measures and stay-at-home orders.
+
+In a [recent article](https://www.stlouisfed.org/on-the-economy/2020/march/social-distancing-contact-intensive-occupations "Social Distancing and Contact-Intensive Occupations"), Matthew Famiglietti, Fernando Leibovici and Ana Maria Santacreu combine individual-level data from the 2017 American Community Survey with information on occupational contact intensity from O\*NET to determine how many people work in occupations that require the worker to perform tasks in close physical proximity to other people. They find that 27.3 million workers have occupations with a high contact intensity. These occupations include barbers, hairstylists, food and beverage serving workers, and flight attendants, among others.
+
+In [another article](https://www.stlouisfed.org/on-the-economy/2020/march/covid-19-workers-highest-unemployment-risk "COVID-19: Which Workers Face the Highest Unemployment Risk?"), Charles Gascon uses Occupation Employment Statistics from the Bureau of Labor Statistics to determine which occupations face a high risk of unemployment, and he estimates that 46 percent, or approximately 67 million U.S. workers, face a high risk of being laid off.
+
+I combine the approaches from the two articles and merge state-level occupation composition data from the Bureau of Labor Statics with information on occupational contact intensity from O\*NET. I saved some time by extracting the contact intensity information from the Famiglietti, Leibovici, and Santacreu dataset as it is publicly available.
+
+```{python}
+#| echo: false
+
+#libraries
+import pandas as pd
+
+
+# adjust pandas display options
+pd.set_option('display.max_columns', None)  # show all columns
+pd.set_option('display.max_rows', None)  # show all rows
+pd.set_option('display.width', None)  # auto-adjust width
+
+
+# load proximity scores from Famiglietti, Leibovici, and Santacreu blog post
+names = ['soc', 'prox_index', 'score', 'essential', 'home_work', 'category']
+
+prox = pd.read_excel(
+    'data/contact-intensive-occupations.xlsx',
+    usecols=[0,1,2,3,4,9],
+    sheet_name='Appendix', 
+    names=names,
+    dtype=str
+)
+
+
+# load state-level data from the Bureau of Labor Statistics
+data = pd.read_excel('data/state-m2019-dl.xlsx', header=0, sheet_name='State_M2019_dl', dtype=str)
+
+
+# remove non-Kansas data and rows without estimates
+data = data[(data['area']=='20') & (data['tot_emp']!='**') & (data['o_group'].astype(str)=='detailed')]
+
+data.head()
+#hide
+
+# The Kansas Occupation Employment Statistics data contain a column named `occ_code`, which represents the six-digit occupation code; however, the Famiglietti, Leibovici, and Santacreu data contain a four digit occupation code (and no hyphen), so we need to create a similar field in the Kansas dataset that we can use to match the Famiglietti-Leibovici-Santacreu data. 
+
+```
+
+The Kansas Occupation Employment Statistics data contain a column named \`occ_code\`, which represents the six-digit occupation code; however, the Famiglietti, Leibovici, and Santacreu data contain a four digit occupation code (and no hyphen), so we need to create a similar field in the Kansas dataset that we can use to match the Famiglietti-Leibovici-Santacreu data.
+
+```{python}
+#| echo: false
+
+# pull off first four digits of occ_code and remove hyphen
+data['soc'] = data['occ_code'].str[:5]
+
+data['soc'] = data['soc'].str.replace(r'\D', '')
+
+
+# merge the two datasets
+merged = pd.merge(left=data, right=prox, how='left', left_on='soc', right_on='soc')
+
+merged.head()
+```
+
+\
+
+# **Calculating the Second-Quarter Unemployment Rate**
+
+The St. Louis Fed analysis averages the numbers from the Famiglietti-Leibovici-Santacreu and Gascon articles to arrive at a point estimate of the number of workers at risk of being laid off during the second quarter. This results in approximately 47 million people being laid off during this period. This is quite high as it assumes everyone in a "high risk" occupation will become laid off. Therefore, I depart from the St. Louis Fed analysis by taking into account the fact that some occupations have been designated as essential and face a lower risk of layoff. Using guidance from the [Kansas Essential Functions Framework](https://governor.kansas.gov/essential-functions-guidance/), I added a field to the Famiglietti, Leibovici, and Santacreu data that indicates whether an occupation is essential.
+
+To calculate the expected layoffs, I added the numbers for the occupations in the highest contact intensity category (following Famiglietti, Leibovici, and Santacreu), and I subtracted the numbers from occupations that are essential (my innovation). Adding the expected layoffs to the initial number of unemployed in February results in approximately 66,000 total unemployed Kansans. Given the assumption of a constant labor force, this results in an unemployment rate of 4.4 percent. The calculation can be summarized in the following steps:
+
+```{python}
+#| echo: false
+#hide_input
+
+# summary input calculations
+unemp = lf_feb20 * unemp_feb20
+
+high_contact = merged[merged['score']=='2']['tot_emp'].astype(int).sum()
+
+essential = merged[(merged['score']=='2') & (merged['essential']=='1')]['tot_emp'].astype(int).sum()
+
+layoffs = high_contact - essential
+
+est_unemp = unemp + layoffs
+
+est_rate = est_unemp / lf_feb20
+
+
+# steps to calculate estimated unemployment rate
+# print('Steps to calculate the estimated unemployment rate (using data from Method 1):')
+print('1. Kansas civilian labor force in February 2020 = {l:,.0f} (KDOL)'.format(l=lf_feb20))
+print('2. Kansas unemployment rate in February 2020 = {r:0.1f}% (KDOL)'.format(r=unemp_feb20*100))
+print('3. Unemployed Kansans in February 2020 = {u:,.0f} (#1 * #2)'.format(u=unemp))
+print('4. Kansas workers in high contact-intensive occupations = {c:,.0f} (Nigel\'s calculations using O*Net data)'.format(c=high_contact))
+
+print('5. Kansas workers employed in "essential" occupations = {e:,.0f} (Nigel\'s calculations using KEFF guidance)'.format(e=essential))
+
+print('6. Estimated layoffs in second quarter 2020 = {f:,.0f} (#4 - #5)'.format(f=layoffs))
+  
+print('7. Unemployed Kansans in second quarter 2020 = {k:,.0f} (#3 + #6)'.format(k=est_unemp))
+  
+print('8. Kansas unemployment rate in second quarter 2020 = {p:0.1f}% (#7 / #1)'.format(p=est_rate*100))
+```
+
+# **Sensitivity Analysis**
+
+The St. Louis Fed estimate of 32.1 percent seems a bit high, but my estimate of 4.4 percent seems very low, especially given the large spike in the number unemployment insurance claims. This is because my estimate assumes everyone in an "essential" occupation will retain his or her job, which is probably not the case. For example, restaurants need cooks and delivery drivers, but they do not need waitstaff right now. Some waiters and waitresses may assist with deliveries, which may keep their hours from getting cut, but dishwashers may end up working fewer hours as they will be washing fewer dishes. We can look at the sensitivity of the estimated unemployment rate to different assumptions in the retention rate of essential occupations. That is, maybe restaurants will only retain 50 percent of their staff instead of 100 percent as the estimate currently assumes.
+
+The graph below shows the calculated unemployment rate based on different retention rates for essential occupations. The estimated Kansas unemployment rate for Q2 2002 ranges from 4.4 percent to 22.7 percent, where 22.7 percent assumes no retention of essential occupations (i.e., similar to the St. Louis Fed analysis).
+
+```{python}
+#| echo: false
+#hide
+
+# libraries
+import numpy as np
+import plotly.graph_objects as go
+import pandas as pd
+
+
+import numpy as np
+import plotly.graph_objects as go
+
+
+# generate unemployment estimates by varying the retention rate
+rates = np.linspace(0,1,11)
+
+estimates = []
+
+for rate in rates:
+    estimate = (unemp + (high_contact - essential*rate)) / lf_feb20 * 100
+    estimates.append(round(estimate,1))
+
+    
+# configure graph settings    
+unemp_data = go.Scatter(x=np.linspace(0,100,11), y=estimates)
+
+layout = go.Layout(xaxis=dict(title='Retention Rate (%)'), yaxis=dict(title='Unemployment Rate (%)'))
+
+fig = go.Figure(data=[unemp_data], layout=layout)
+
+fig.update_layout(
+    title={
+        'text': 'Estimates of the Q2 2002 Kansas Unemployment Rate Under Different Retention Rates',
+        'y':0.9,
+        'x':0.5,
+        'xanchor': 'center',
+        'yanchor': 'top'})
+
+fig.show()
+
+HTML(fig.to_html(include_plotlyjs='cdn'))
+```
+
+# **Summary of Calculations**
+
+It is important to note these estimates make several important assumptions:
+
+-   the calculations assume the labor force is constant and exclude the fact that some recently unemployed workers may become discouraged and cease looking for employment (i.e., no longer technically unemployed);
+
+-   many businesses may send workers home with pay, rather than laying them off;
+
+-   only occupations with a proximity score of 2 are at risk of being layed off;
+
+-   the sensitivity analysis assumes retention rates are the same accross all occupations; and
+
+-   the calculations do not account for any potential effects of fiscal measures, such as the recent stimulus package or changes in unemployment insurance policy.
+
+It is also important to keep in mind these are rough calculations. As such, any attempts to place upper and lower bounds on these estimates would follow the same inexact process. The estimates are sensitive to a number of assumptions, but we may be able to relax some of these assumptions with better, more up-to-date data.
+
+The expected duration of unemployment matters just as much, if not more, than the unemployment rate itself, especially if the recovery is quicker than we anticipate; however, the uncertainty around when and where it will be safe to resume certain economic activity makes *ex ante* analysis of the economic impact of COVID-19 very difficult. At best, we can look at what may happen if different scenarios unfold.
+
+# **Other Limitations and Areas for Improvement**
+
+Though I followed guidance from the Kansas Essential Functions Framework, the designation of occupations as essential is somewhat subjective. It might be nice to have others weigh in on which occupations meet the conditions of these guidelines.
+
+Also, I started working on adding a field that indicates which positions may be performed from home (we would be able to subtract these from the unemployed as well), but this is also very subjective. I thought O\*NET might also have some sort of "telecommute score," but I haven't been able to find anything like that just yet.
