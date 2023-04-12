@@ -89,4 +89,3 @@ jupyter: python3
   }
   </style>
 ```
-# it is now closed
