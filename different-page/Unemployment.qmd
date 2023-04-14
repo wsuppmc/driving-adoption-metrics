@@ -113,7 +113,6 @@ merged = pd.merge(left=data, right=prox, how='left', left_on='soc', right_on='so
 merged.head()
 ```
 
-\
 
 # **Calculating the Second-Quarter Unemployment Rate**
 
