@@ -1,10 +1,8 @@
 ---
-title: ""
+title: "Data you can explore"
 editor: visual
 jupyter: python3
 ---
-
-# Data you can explore
 
 ```{=html}
 <div class="grid-container">
@@ -18,7 +16,7 @@ jupyter: python3
     <div class="grid-image">
       <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\hb1.png" alt="Image 2">
     </div>
-    <p class="grid-text"><a href="../different-page/economic_distress.html">Unemployment vs underemployment</a></p>
+    <p class="grid-text"><a href="../different-page/economic_distress.html">Economic Distress Index</a></p>
   </div>
   <div class="grid-item">
     <div class="grid-image">

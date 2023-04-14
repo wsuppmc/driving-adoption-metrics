@@ -7,7 +7,7 @@ website:
     background: dark
     left: 
       - text: "GitHub Repo"
-        url: "https://github.com/yourusername/yourrepository"
+        url: "https://github.com/wsuppmc/driving-adoption-metrics"
     center:
       - text: "&trade;"
 
