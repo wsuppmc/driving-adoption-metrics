@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 toc: false
 author: Nigel Soria
