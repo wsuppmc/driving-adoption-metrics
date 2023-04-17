@@ -1,6 +1,6 @@
 project: 
   type: website
-  
+
 website: 
   title: "Kansas Economic Data"
   page-footer:
@@ -17,8 +17,7 @@ website:
     right: 
       - text: "Home"
         file: Quartopage.qmd
-      - text: "About"
-        file: about.qmd
+      - about.qmd
   
 
 format: 
