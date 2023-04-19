@@ -1,0 +1,38 @@
+{
+  "Quartopage.qmd": {
+    "Quartopage.html": "4593cdf7"
+  },
+  "about.qmd": {
+    "about.html": "05365779"
+  },
+  "pages/Quartopage.qmd": {
+    "Quartopage.html": "bdbdf5a9"
+  },
+  "pages/about.qmd": {
+    "about.html": "d3391bf5"
+  },
+  "different-page/unemploymentcalculation.ipynb": {
+    "unemploymentcalculation.html": "f8c52eb6"
+  },
+  "different-page/Unemployment.qmd": {
+    "Unemployment.html": "1650c117"
+  },
+  "different-page/economic_distress.qmd": {
+    "economic_distress.html": "013071af"
+  },
+  "different-page/2020-09-28-economic-distress-indicators.ipynb": {
+    "2020-09-28-economic-distress-indicators.html": "6a995436"
+  },
+  "different-page/Unemployment_measures.qmd": {
+    "Unemployment_measures.html": "01008045"
+  },
+  "different-page/2020-09-30-unemployment-measures.ipynb": {
+    "2020-09-30-unemployment-measures.html": "475cf498"
+  },
+  "different-page/h1bvisa.qmd": {
+    "h1bvisa.html": "ecc67586"
+  },
+  "different-page/2020-10-28-h1b-visa-analysis.ipynb": {
+    "2020-10-28-h1b-visa-analysis.html": "3a3496f0"
+  }
+}
