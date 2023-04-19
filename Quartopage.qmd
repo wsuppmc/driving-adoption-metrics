@@ -10,7 +10,7 @@ jupyter: python3
     <div class="grid-image">
       <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\covid.png" alt="Image 1">
     </div>
-    <p class="grid-text"><a href="Unemployment.html">Kansas Unemployment During COVID19</a></p>
+    <p class="grid-text"><a href="https://wsuppmc.github.io/driving-adoption-metrics/docs/different-page/Unemployment.html">Kansas Unemployment During COVID19</a></p>
   </div>
   <div class="grid-item">
     <div class="grid-image">
