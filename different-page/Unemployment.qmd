@@ -161,17 +161,24 @@ The graph below shows the calculated unemployment rate based on different retent
 
 ```{python}
 #| echo: false
-#hide
-
-# libraries
 import numpy as np
 import plotly.graph_objects as go
 import pandas as pd
 
+lf_feb20 = 1496507.0
 
-import numpy as np
-import plotly.graph_objects as go
+unemp_feb20 = 0.031
+unemp = lf_feb20 * unemp_feb20
 
+high_contact = merged[merged['score']=='2']['tot_emp'].astype(int).sum()
+
+essential = merged[(merged['score']=='2') & (merged['essential']=='1')]['tot_emp'].astype(int).sum()
+
+layoffs = high_contact - essential
+
+est_unemp = unemp + layoffs
+
+est_rate = est_unemp / lf_feb20
 
 # generate unemployment estimates by varying the retention rate
 rates = np.linspace(0,1,11)
@@ -199,8 +206,6 @@ fig.update_layout(
         'yanchor': 'top'})
 
 fig.show()
-
-HTML(fig.to_html(include_plotlyjs='cdn'))
 ```
 
 # **Summary of Calculations**
