@@ -1,0 +1,89 @@
+---
+title: "Data you can explore"
+editor: visual
+jupyter: python3
+---
+
+```{=html}
+<div class="grid-container">
+  <div class="grid-item">
+    <div class="grid-image">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\covid.png" alt="Image 1">
+    </div>
+    <p class="grid-text"><a href="../different-page/Unemployment.html">Kansas Unemployment During COVID19</a></p>
+  </div>
+  <div class="grid-item">
+    <div class="grid-image">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\hb1.png" alt="Image 2">
+    </div>
+    <p class="grid-text"><a href="../different-page/economic_distress.html">Economic Distress Index</a></p>
+  </div>
+  <div class="grid-item">
+    <div class="grid-image">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\labor.png" alt="Image 3">
+    </div>
+    <p class="grid-text"><a href="../different-page/Unemployment_measures.html">Unemployment vs. Underemployment</a></p>
+  </div>
+  <div class="grid-item">
+    <div class="grid-image">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\bar.png" alt="Image 4">
+    </div>
+    <p class="grid-text"><a href="https://kdc-ks-gov.github.io/kansas-data/stat-index/">HB1 Visa information</a></p>
+  </div>
+  <div class="grid-item">
+    <div class="grid-image">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\stat.png" alt="Image 5">
+    </div>
+    <p class="grid-text"><a href="https://kdc-ks-gov.github.io/kansas-data/distress-index/">HB1 Visa information</a></p>
+  </div>
+  <div class="grid-item">
+    <div class="grid-image">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\distress.png" alt="Image 6">
+    </div>
+    <p class="grid-text"><a href="../different-page/h1bvisa.html">H-1B Visas in Kansas</a></p>
+ </div>
+
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .grid-item {
+    background-color: white;
+    border: 4px solid black;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 22px;
+    padding-bottom: 5%;
+  }
+
+  .grid-image {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .grid-text {
+    position: relative;
+    color: black;
+    font-size: 15px;
+    margin-top: 10px;
+    padding-left: 0px
+  }
+  </style>
+```
