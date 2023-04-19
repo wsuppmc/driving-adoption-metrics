@@ -10,19 +10,19 @@ jupyter: python3
     <div class="grid-image">
       <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\covid.png" alt="Image 1">
     </div>
-    <p class="grid-text"><a href="../different-page/Unemployment.html">Kansas Unemployment During COVID19</a></p>
+    <p class="grid-text"><a href="../posts/Unemployment.html">Kansas Unemployment During COVID19</a></p>
   </div>
   <div class="grid-item">
     <div class="grid-image">
       <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\hb1.png" alt="Image 2">
     </div>
-    <p class="grid-text"><a href="../different-page/economic_distress.html">Economic Distress Index</a></p>
+    <p class="grid-text"><a href="../posts/economic_distress.html">Economic Distress Index</a></p>
   </div>
   <div class="grid-item">
     <div class="grid-image">
       <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\labor.png" alt="Image 3">
     </div>
-    <p class="grid-text"><a href="../different-page/Unemployment_measures.html">Unemployment vs. Underemployment</a></p>
+    <p class="grid-text"><a href="../posts/Unemployment_measures.html">Unemployment vs. Underemployment</a></p>
   </div>
   <div class="grid-item">
     <div class="grid-image">
@@ -40,7 +40,7 @@ jupyter: python3
     <div class="grid-image">
       <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\distress.png" alt="Image 6">
     </div>
-    <p class="grid-text"><a href="../different-page/h1bvisa.html">H-1B Visas in Kansas</a></p>
+    <p class="grid-text"><a href="../posts/h1bvisa.html">H-1B Visas in Kansas</a></p>
  </div>
 
 
