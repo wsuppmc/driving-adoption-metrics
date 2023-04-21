@@ -4,7 +4,7 @@
     "href": "Quartopage.html",
     "title": "Data you can explore",
     "section": "",
-    "text": "Kansas Unemployment During COVID19\n  \n  \n    \n      \n    \n    Economic Distress Index\n  \n  \n    \n      \n    \n    Unemployment vs. Underemployment\n  \n  \n    \n      \n    \n    HB1 Visa information\n  \n  \n    \n      \n    \n    HB1 Visa information\n  \n  \n    \n      \n    \n    H-1B Visas in Kansas\n \n\n\n\n\n\n\n Back to top"
+    "text": "Kansas Unemployment During COVID19\n  \n  \n    \n      \n    \n    Economic Distress Index\n  \n  \n    \n      \n    \n    Unemployment vs. Underemployment\n  \n  \n    \n      \n    \n    HB1 Visa information\n  \n  \n    \n      \n    \n    Economic Distress Index\n  \n  \n    \n      \n    \n    H-1B Visas in Kansas\n \n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "about.html",
@@ -40,5 +40,12 @@
     "title": "Unemployment vs. Underemployment",
     "section": "",
     "text": "Definitions\nThe six measures are based on the following definitions:\n\nU-1, persons unemployed 15 weeks or longer, as a percent of the civilian labor force;\nU-2, job losers and persons who completed temporary jobs, as a percent of the civilian labor force;\nU-3, total unemployed, as a percent of the civilian labor force (this is the definition used for the official unemployment rate);\nU-4, total unemployed plus discouraged workers, as a percent of the civilian labor force plus discouraged workers;\nU-5, total unemployed, plus discouraged workers, plus all other marginally attached workers, as a percent of the civilian labor force plus all marginally attached workers; and\nU-6, total unemployed, plus all marginally attached workers, plus total employed part time for economic reasons, as a percent of the civilian labor force plus all marginally attached workers.\n\n\n\nLabor Underutilization Rates for Kansas, 2003-2019 Annual Averages\nDouble clicking on one of the items in the legend will isolate that series. Double clicking again will bring back the lines for the other measures.\n\n\n\n                                                \n\n\n\n\nLabor Underutilization for States, Third Quarter of 2019 through Second Quarter of 2020 Averages\n\n\n\n                                                \n\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "different-page/economic-distress-index.html",
+    "href": "different-page/economic-distress-index.html",
+    "title": "Economic Distress Index",
+    "section": "",
+    "text": "Methodology\nThe index combines seven indicators into a single, comparative measure of economic well-being. The index is constructed from the U.S. Census Bureau's American Community Survey (ACS) 5-Year Estimates and County Business Patterns (CBP) datasets. Table 1 contains the seven indicators along with their descriptions and sources.\n\n\n\n                                                \n\n\nThese seven indicators are individually normalized across 105 counties on a scale of 0 to 100, where 100 represents the most distressed county and 0 represents the least distressed county. The individual indicators are normalized using the following formula:\n\\[Index~Indicator_{ij} =\\frac{X_{ij}~-~min_{(of~105)}{X_i}}{max\n_{(of~105)}X_i~-~min_{(of~105)}X_i}*100 \\]\nwhere 𝑋𝑖𝑗 is the value of indicator 𝑖 for county 𝑗.\nIn most cases, higher values represent greater distress; however, for the median income ratio, change in employment, and change in establishments, lower values indicate greater distress. Therefore, normalization requires a slightly different formula:\n\\[Index~Indicator_{ij} =\\frac{min_{(of~105)}{X_i}~-~X_{ij}}{max\n_{(of~105)}X_i~-~min_{(of~105)}X_i}*100 \\]\nThe final index value results from taking the geometric mean of the seven indicators. To handle the zeros, one is added to each normalized indicator; therefore, one is then subtracted from the calculated mean.\nFigure 1: Economic Distress Index for Kansas Counties\n\n\n\n                                                \n\n\nTable 2: Distress Indicators and Quartiles by County\n(1st Quartile = Least Distressed, 4th Quartile = Most Distressed)\n\n\n\n                                                \n\n\n\n\n\n\n Back to top"
   }
 ]

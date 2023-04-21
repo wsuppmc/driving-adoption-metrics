@@ -1,0 +1,188 @@
+---
+title: "Economic Distress Index"
+description: "A county-level measure of economic distress based on seven indicators."
+toc: false
+author: Nigel Soria
+badges: true
+categories: [census, acs, economic distress, counties]
+permalink: /distress-index/
+image: images/ks-edi.png
+---
+
+```{python}
+#| echo: false
+
+import numpy as np
+import pandas as pd
+import requests
+import scipy.stats as ss
+import matplotlib as mpl
+import json
+import plotly.graph_objects as go
+import plotly.figure_factory as ff
+import plotly.express as px
+from urllib.request import urlopen
+from IPython.display import Image
+from IPython.display import HTML
+```
+
+# Methodology
+
+The index combines seven indicators into a single, comparative measure of economic well-being. The index is constructed from the U.S. Census Bureau\'s American Community Survey (ACS) 5-Year Estimates and County Business Patterns (CBP) datasets. Table 1 contains the seven indicators along with their descriptions and sources.
+
+```{python}
+#| echo: false
+
+values = [
+    [
+        'No High School Diploma', 
+        'Housing Vacancy Rate', 
+        'Unemployment Rate', 
+        'Poverty Rate', 
+        'Median Income Ratio', 
+        'Change in Employment', 
+        'Change in Establishments'
+    ], #1st col
+    [
+        'Percentage of the population 25 years of age and older <b>without a high school diploma or equivalent</b>',
+        'Percentage of habitable housing that is <b>unoccupied</b> (excludes properties that are for seasonal, recreational, or occasional use)',
+        'The number of <b>unemployed people</b> as a fraction of the labor force',
+        'Percentage of the population living <b>under the poverty line</b>',
+        'Median household income <b>as a percentage</b> of the state’s median household income',
+        'Percentage change in the <b>number of jobs</b>',
+        'Percentage change in the number of <b>business establishments</b>'
+    ],
+    [
+        'ACS (2016-2020)',
+        'ACS (2016-2020)',
+        'ACS (2016-2020)',
+        'ACS (2016-2020)',
+        'ACS (2016-2020)',
+        'CBP (2019, 2020)',
+        'CBP (2019, 2020)'
+    ]
+]
+
+
+fig = go.Figure(data=[go.Table(
+  columnorder = [1,2,3],
+  columnwidth = [25,60,20],
+  header = dict(
+    values = [
+        ['<b>Indicator</b>'],
+        ['<b>Description</b>'],
+        ['<b>Source</b>']
+    ],
+    line_color='darkslategray',
+    fill_color=['rgb(22,74,88)', 'rgb(231,38,40)', 'rgb(255,193,0)'],
+    align=['center','center','center'],
+    font=dict(color='white', size=12),
+    height=20
+  ),
+  cells=dict(
+    values=values,
+    line_color='darkslategray',
+    fill=dict(color=['white', 'white', 'white']),
+    align=['left', 'left', 'left'],
+    font=dict(color='black', size=12),
+    height=30)
+    )
+])
+fig.show()
+```
+
+These seven indicators are individually normalized across 105 counties on a scale of 0 to 100, where 100 represents the most distressed county and 0 represents the least distressed county. The individual indicators are normalized using the following formula:
+
+$$Index~Indicator_{ij} =\frac{X_{ij}~-~min_{(of~105)}{X_i}}{max
+_{(of~105)}X_i~-~min_{(of~105)}X_i}*100 $$
+
+where 𝑋𝑖𝑗 is the value of indicator 𝑖 for county 𝑗.
+
+In most cases, higher values represent greater distress; however, for the median income ratio, change in employment, and change in establishments, lower values indicate greater distress. Therefore, normalization requires a slightly different formula:
+
+$$Index~Indicator_{ij} =\frac{min_{(of~105)}{X_i}~-~X_{ij}}{max
+_{(of~105)}X_i~-~min_{(of~105)}X_i}*100 $$
+
+The final index value results from taking the geometric mean of the seven indicators. To handle the zeros, one is added to each normalized indicator; therefore, one is then subtracted from the calculated mean.
+
+**Figure 1: Economic Distress Index for Kansas Counties**
+
+```{python}
+#| echo: false
+
+#hide
+
+token = 'pk.eyJ1Ijoid3N1cHBtYyIsImEiOiJjbDA2dWNiZmEyYjRqM2lsc2hrZ2g5Z3ZrIn0.Qcm0AOjbrEP6NPJ6u-14EA'
+
+with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
+    counties = json.load(response)  
+
+df = pd.read_csv('data/2020-distress-index-data.csv', dtype={'fips':'str'})
+df = df.sort_values(by=['index_quartile'])
+
+colorscales = [
+    ((0.0, 'rgba(231,38,40,0.25)'), (1.0, 'rgba(231,38,40,0.25)')),
+    ((0.0, 'rgba(231,38,40,0.5)'), (1.0, 'rgba(231,38,40,0.5)')),
+    ((0.0, 'rgba(231,38,40,0.75)'), (1.0, 'rgba(231,38,40,0.75)')),
+    ((0.0, 'rgba(231,38,40,1.0)'), (1.0, 'rgba(231,38,40,1.0)'))
+]
+
+fig = go.Figure()
+for i, quartile in enumerate(df['index_quartile'].unique()):
+    dfp = df[df['index_quartile'] == quartile]
+    fig.add_choroplethmapbox(
+        geojson=counties, locations=dfp['fips'],
+        z=[i,] * len(dfp), featureidkey='id',
+        showlegend=True, name=quartile,
+        colorscale=colorscales[i], showscale=False,
+        text='County:  ' + dfp['county'].str.title() +
+        '<br>Quartile:  ' + dfp['index_quartile'].str.split(' ').str[0],
+        hoverinfo='text'
+    )
+
+fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b':0},
+                  mapbox_accesstoken=token,
+                  mapbox=dict(style='carto-positron', zoom=6, 
+                              center={'lat': 38.4937, 'lon': -98.3804},))
+
+fig.show()
+```
+
+**Table 2: Distress Indicators and Quartiles by County\
+(1st Quartile = Least Distressed, 4th Quartile = Most Distressed)**
+
+```{python}
+#| echo: false
+
+
+#hide
+
+df = df.sort_values(by=['county'])
+
+names = [
+    '<b>County</b>', '<b>No HS Diploma</b>', '<b>Unemp Rate</b>', 
+    '<b>Poverty Rate</b>', '<b>Median Income</b>', '<b>Estab Change</b>', 
+    '<b>Emp Change</b>', '<b>Vacancy Rate</b>', '<b>Distress Index</b>', '<b>Index Quartile</b>'
+]
+
+fig = go.Figure(data=[go.Table(
+    columnwidth = [15]+[10]*9,
+    header=dict(values=names,
+                line_color='darkslategray',
+                fill_color='rgb(131,201,217)',
+                font=dict(color='white', size=12),
+                align='center'),
+    cells=dict(values=[df.county, df.hs_lower.apply('{0:.2f}'.format), df.unemployment_rate.apply('{0:.2f}'.format), 
+                       df.poverty_rate.apply('{0:.2f}'.format), df.med_inc_rate.apply('{0:.2f}'.format), 
+                       df.est_chg.apply('{0:.2f}'.format), df.emp_chg.apply('{0:.2f}'.format), 
+                       df.vacancy_rate.apply('{0:.2f}'.format), df.distress_index.apply('{0:.2f}'.format), 
+                       df.index_quartile.str.split(' ').str[0]],
+               line_color='darkslategray',
+               fill_color=['rgba(131,201,217,0.2)','white'],
+               font=dict(color='black', size=12),
+               align=['left', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'center']))
+])
+
+fig.show()
+
+```
