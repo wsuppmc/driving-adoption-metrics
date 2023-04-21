@@ -46,45 +46,46 @@ jupyter: python3
 
 <style>
   .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 25px;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 25px;
+}
 
-  .grid-item {
-    background-color: white;
-    border: 4px solid black;
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 12px;
-    padding: 22px;
-    padding-bottom: 5%;
-    box-shadow: 3px 3px 5px red;
-  }
+.grid-item {
+  background-color: white;
+  border: 1px solid black;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 22px;
+  padding-bottom: 5%;
+  box-shadow: 3px 3px 5px #63666A;
+}
 
-  .grid-image {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    margin-bottom: 10px;
-  }
+.grid-image {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
 
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 
-  .grid-text {
-    position: relative;
-    color: black;
-    font-size: 15px;
-    margin-top: 10px;
-    padding-left: 0px
-  }
+.grid-text {
+  position: relative;
+  color: black;
+  font-size: 15px;
+  margin-top: 10px;
+  padding-left: 0px;
+}
+
   </style>
 ```
