@@ -34,7 +34,7 @@ jupyter: python3
     <div class="grid-image">
       <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\distress_index.png" alt="Image 5">
     </div>
-    <p class="grid-text"><a href="../posts/economic-distress-index.html">Economic Distress Index</a></p>
+    <p class="grid-text"><a href="posts/economic-distress-index.html">Economic Distress Index</a></p>
   </div>
   <div class="grid-item">
     <div class="grid-image">
