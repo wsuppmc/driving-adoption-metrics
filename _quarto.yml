@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website: 
-  title: "Kansas Economic Data"
+  title: "Driving Adoption: Smart Manufacturing Technologies"
   back-to-top-navigation: true
   page-footer:
     background: dark
@@ -24,6 +24,9 @@ website:
 
 format: 
   html:
+    head:
+      - name: viewport
+        content: "width=device-width, initial-scale=1"
     embed-resources: true
     page-layout: full
     toc: false
