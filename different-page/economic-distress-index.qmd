@@ -28,7 +28,7 @@ from IPython.display import HTML
 
 # Methodology
 
-The index combines seven indicators into a single, comparative measure of economic well-being. The index is constructed from the U.S. Census Bureau\'s American Community Survey (ACS) 5-Year Estimates and County Business Patterns (CBP) datasets. Table 1 contains the seven indicators along with their descriptions and sources.
+The index combines seven indicators into a single, comparative measure of economic well-being. The index is constructed from the U.S. Census Bureau's American Community Survey (ACS) 5-Year Estimates and County Business Patterns (CBP) datasets. Table 1 contains the seven indicators along with their descriptions and sources.
 
 ```{python}
 #| echo: false
@@ -89,6 +89,8 @@ fig = go.Figure(data=[go.Table(
     )
 ])
 fig.show()
+print("\n")
+
 ```
 
 These seven indicators are individually normalized across 105 counties on a scale of 0 to 100, where 100 represents the most distressed county and 0 represents the least distressed county. The individual indicators are normalized using the following formula:
@@ -104,6 +106,11 @@ $$Index~Indicator_{ij} =\frac{min_{(of~105)}{X_i}~-~X_{ij}}{max
 _{(of~105)}X_i~-~min_{(of~105)}X_i}*100 $$
 
 The final index value results from taking the geometric mean of the seven indicators. To handle the zeros, one is added to each normalized indicator; therefore, one is then subtracted from the calculated mean.
+
+\
+\
+\
+\
 
 **Figure 1: Economic Distress Index for Kansas Counties**
 
@@ -146,6 +153,9 @@ fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b
                               center={'lat': 38.4937, 'lon': -98.3804},))
 
 fig.show()
+print("\n")
+print("\n")
+
 ```
 
 **Table 2: Distress Indicators and Quartiles by County\

@@ -2,8 +2,21 @@ footer {
   position: relative;
   left: 0;
   bottom: 0;
-  width: auto;
-  background-color: black;
-  color: white;
+  width: relative;
+  background-color: #F1F1F1;
   text-align: left;
 }
+
+.grid-text a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .grid-text a:hover {
+    text-decoration: none;
+  }
+
+  .grid-text a:visited {
+    text-decoration: none;
+  }
+  

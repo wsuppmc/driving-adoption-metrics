@@ -80,12 +80,18 @@ img {
 }
 
 .grid-text {
-  position: relative;
-  color: black;
-  font-size: 15px;
-  margin-top: 10px;
-  padding-left: 0px;
-}
+    position: relative;
+    text-decoration: none;
+    color: #164a58;
+    font-size: 15px;
+    margin-top: 10px;
+    padding-left: 0px;
+    text-decoration: none;
+    font-weight: bold; /* make text bold */
+  }
+  body {
+      color: #164a58;
+    }
 
-  </style>
+</style>
 ```

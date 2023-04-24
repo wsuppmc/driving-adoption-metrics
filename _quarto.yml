@@ -6,21 +6,17 @@ website:
   title: "Driving Adoption: Smart Manufacturing Technologies"
   back-to-top-navigation: true
   page-footer:
-    background: dark
+    background: "#f1f1f1"
+    foreground: "#164a58"
     left: 
       - text: "GitHub Repo"
         url: "https://github.com/wsuppmc/driving-adoption-metrics"
-    center:
-      - text: "&trade;"
 
   navbar: 
-    background: dark
+    background: "#f1f1f1"
+    foreground: "#164a58"
     search: true
-    right: 
-      - text: "Home"
-        file: Quartopage.qmd
-      - about.qmd
-  
+
 
 format: 
   html:
