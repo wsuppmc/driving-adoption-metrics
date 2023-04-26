@@ -12,11 +12,14 @@ footer {
     text-decoration: none;
   }
 
-  .grid-text a:hover {
+.grid-text a:hover {
     text-decoration: none;
   }
 
-  .grid-text a:visited {
+.grid-text a:visited {
     text-decoration: none;
   }
-  
+
+.navbar li.nav-item a.nav-link span {
+  color: #164a58 !important;
+}
