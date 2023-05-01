@@ -13,6 +13,7 @@ image: images/ks-edi.png
 #| echo: false
 
 import numpy as np
+import numpy as np
 import pandas as pd
 import requests
 import scipy.stats as ss
@@ -117,7 +118,6 @@ The final index value results from taking the geometric mean of the seven indica
 ```{python}
 #| echo: false
 
-#hide
 
 token = 'pk.eyJ1Ijoid3N1cHBtYyIsImEiOiJjbDA2dWNiZmEyYjRqM2lsc2hrZ2g5Z3ZrIn0.Qcm0AOjbrEP6NPJ6u-14EA'
 
@@ -165,7 +165,8 @@ print("\n")
 #| echo: false
 
 
-#hide
+#| label: tbl-results
+#| tbl-cap: Distress Indicators and Quartiles by County<br>(1st Quartile = Least Distressed, 4th Quartile = Most Distressed)
 
 df = df.sort_values(by=['county'])
 

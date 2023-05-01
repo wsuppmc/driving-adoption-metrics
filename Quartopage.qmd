@@ -26,9 +26,9 @@ jupyter: python3
   </div>
   <div class="grid-item">
     <div class="grid-image">
-      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\bar.png" alt="Image 4">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\migration.png" alt="Image 4">
     </div>
-    <p class="grid-text"><a href="https://kdc-ks-gov.github.io/kansas-data/stat-index/">HB1 Visa information</a></p>
+    <p class="grid-text"><a href="posts/county-migration-flows.html">county-migration-flows</a></p>
   </div>
   <div class="grid-item">
     <div class="grid-image">

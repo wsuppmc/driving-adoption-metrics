@@ -1,0 +1,128 @@
+---
+title: "County Migration Flows"
+format: html
+---
+
+## Methodology
+
+The following data come from the U.S. Census Bureau's County-to-County Migration Flows dataset. Figure \@fig-results shows net migration for Kansas counties. Table \@tbl-results shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:
+
+$$
+\text{Net Flow}_i = \text{Inflow}_i - \text{Outflow}_i,
+$$
+
+where $\text{Net Flow}_i < 0$ indicates the number of indiviuals leaving county 𝑖 exceeded the number of individuals entering county 𝑖 during the sampling period.
+
+## Results
+
+```{python}
+#| echo: false
+
+import folium
+import json
+import numpy as np
+import pandas as pd
+import plotly
+import chart_studio
+import chart_studio.plotly as py
+import plotly.graph_objects as go
+import plotly.io as pio
+import plotly.express as px
+import plotly.figure_factory as ff
+import chart_studio.tools as tls
+from urllib.request import urlopen
+import urllib, json
+import requests
+import matplotlib as mpl
+from IPython.display import IFrame
+
+df = pd.read_csv('data/county-migration-flow-data.csv')
+
+def color_scale(c1, c2, n): #fade (linear interpolate) from color c1 (at mix=0) to c2 (mix=1)
+    colors = []
+    c1 = np.array(mpl.colors.to_rgb(c1))
+    c2 = np.array(mpl.colors.to_rgb(c2))
+
+    for x in range(n+1):
+        color = mpl.colors.to_hex((1-x/n)*c1 + x/n*c2)
+        colors.append(color)
+
+    return colors
+
+blue1 ='#83c9d9'
+blue2 ='#164a58'
+n=500
+colors = color_scale(blue1, blue2, n)
+
+with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
+    counties = json.load(response) 
+    
+token = 'pk.eyJ1Ijoid3N1cHBtYyIsImEiOiJjbDA2dWNiZmEyYjRqM2lsc2hrZ2g5Z3ZrIn0.Qcm0AOjbrEP6NPJ6u-14EA'
+
+fig = go.Figure(go.Choroplethmapbox(geojson=counties, locations=df['fips1'], z=df['netflow'],
+#                                     locations=df[fmask]['area_fips'], z=df[fmask]['month3_emplvl'],
+                                    colorscale=colors, zmin=df['netflow'].min(), zmax=df['netflow'].max(),
+                                    marker_opacity=0.5, marker_line_width=1,
+                                    text='County:  ' + df['county1_name'].str.title() +
+                                    '<br>Inflow:   ' + df.inflow.apply('{0:,.0f}'.format) +
+                                    '<br>Outflow:  ' + df.outflow.apply('{0:,.0f}'.format) + 
+                                    '<br>Net Flow:  ' + df.netflow.apply('{0:,.0f}'.format),
+                                    hoverinfo='text',
+#                                     showscale=False,
+                                    colorbar=dict(
+                                        title='Net Migration Flow',
+                                        titleside='top'
+                                    )
+                                   ))
+
+fig.update_layout(mapbox_style='carto-positron', mapbox_accesstoken=token,
+                  mapbox_zoom=6, mapbox_center = {'lat': 38.4937, 'lon': -98.3804})
+fig.update_layout(margin={'r':0,'t':0,'l':0,'b':0})
+
+# choropleth = go.Choroplethmapbox(
+#         geojson=states,
+#         locations=['20'],
+#         z=[0],
+#         zmin=0, zmax=0,
+#         colorscale = [[0,'rgba(0, 0, 0, 0)'],[1,'rgba(0, 0, 0, 0)']],
+#         marker_line_color='rgb(22,74,88)',
+#         marker_line_width=2,
+#         showscale = False,
+#     )
+
+# fig.add_trace(choropleth)
+fig.show()
+
+print("\n")
+print("\n")
+
+```
+
+## Population Migration Flows for Kansas Counties
+
+```{python}
+#| echo: false
+df = df.sort_values(by=['netflow'], ascending=False)
+
+names = [
+    '<b>County</b>', '<b>Inflow</b>', 
+    '<b>Outflow</b>', '<b>Net Flow</b>'
+]
+
+fig = go.Figure(data=[go.Table(
+    columnwidth = [15]+[10]*9,
+    header=dict(values=names,
+                line_color='darkslategray',
+                fill_color='rgb(131,201,217)',
+                font=dict(color='white', size=12),
+                align='center'),
+    cells=dict(values=[df.county1_name, df.inflow.apply('{0:,.0f}'.format), df.outflow.apply('{0:,.0f}'.format), 
+                       df.netflow.apply('{0:,.0f}'.format)],
+               line_color='darkslategray',
+               fill_color=['rgba(131,201,217,0.2)','white'],
+               font=dict(color='black', size=12),
+               align=['left', 'right', 'right', 'right']))
+])
+
+fig.show()
+```
