@@ -8,17 +8,7 @@ The Healthy, Wealthy, and Wise indices combine multiple indicators into a single
 
 The individual indicators are individually normalized across 105 counties on a scale of 0 to 100, where 100 represents the most distressed county and 0 represents the least distressed county. The individual indicators are normalized using the following formula:
 
-```{python}
-#| echo: false
-print("\n")
-```
-
 $$\text{Index Indicator}_{ij} = \frac{X_{ij}-\text{min}_{(\text{of } 105)}\{X_i\}}{\text{max}_{(\text{of } 105)}\{X_i\}-\text{min}_{(\text{of } 105)}\{X_i\}} \times 100,$$
-
-```{python}
-#| echo: false
-print("\n")
-```
 
 where $X_{ij}$ is the value of indicator $i$ for county $j$. The final index value results from taking the geometric mean of the respective indicators. To handle the zeros, one is added to each normalized indicator; therefore, one is then subtracted from the calculated mean.
 
@@ -232,7 +222,6 @@ fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b
 fig.show()
 print("\n")
 print("\n")
-print("\n")
 ```
 
 ```{python}
@@ -272,7 +261,6 @@ fig.show()
 
 print("\n")
 print("\n")
-print("\n")
 ```
 
 ```{python}
@@ -310,8 +298,4 @@ fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b
                               center={'lat': 38.4937, 'lon': -98.3804},))
 
 fig.show()
-
-print("\n")
-print("\n")
-print("\n")
 ```
