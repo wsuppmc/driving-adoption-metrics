@@ -13,11 +13,11 @@ print("\n")
 <div class="grid-container">
   <div class="grid-item">
     <div class="grid-image">
-      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\migration.png" alt="Image 4">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\healthy-wise-index.png" alt="Image 6">
     </div>
-    <p class="grid-text"><a href="posts/county-migration-flows.html">county-migration-flows</a></p>
-  </div>
-  <div class="grid-item">
+    <p class="grid-text"><a href="posts/healthy-wealthy-wise.html">Healthy-wealth-wise-index</a></p>
+ </div>
+   <div class="grid-item">
     <div class="grid-image">
       <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\distress_index.png" alt="Image 5">
     </div>
@@ -25,10 +25,11 @@ print("\n")
   </div>
   <div class="grid-item">
     <div class="grid-image">
-      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\healthy-wise-index.png" alt="Image 6">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\migration.png" alt="Image 4">
     </div>
-    <p class="grid-text"><a href="posts/healthy-wealthy-wise.html">Healthy-wealth-wise-index</a></p>
- </div>
+    <p class="grid-text"><a href="posts/county-migration-flows.html">county-migration-flows</a></p>
+  </div>
+
 
 
 <style>
