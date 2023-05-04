@@ -14,9 +14,8 @@ where $X_{ij}$ is the value of indicator $i$ for county $j$. The final index val
 
 ```{python}
 #| echo: false
-
-# label: tbl-healthy
-# tbl-cap: Healthy Indicators
+#| label: fig-healthy
+#| fig-cap: "Healthy Indicators"
 
 import numpy as np
 import pandas as pd
@@ -86,9 +85,8 @@ print("\n")
 
 ```{python}
 #| echo: false
-
-# label: tbl-wealthy
-# tbl-cap: Wealthy Indicators
+#| label: fig-wealthy
+#| fig-cap: "Wealthy Indicators"
 
 values = [
     [
@@ -132,9 +130,8 @@ fig.show()
 
 ```{python}
 #| echo: false
-
-# label: tbl-wise
-# tbl-cap: Wise Indicators
+#| label: fig-wise
+#| fig-cap: "Wise Indicators"
 
 values = [
     [
@@ -182,9 +179,8 @@ print("\n")
 
 ```{python}
 #| echo: false
-
-# label: fig-healthy
-# fig-cap: Healthy Index
+#| label: fig-healthy-index
+#| fig-cap: "Healthy Index"
 
 token = 'pk.eyJ1Ijoid3N1cHBtYyIsImEiOiJjbDA2dWNiZmEyYjRqM2lsc2hrZ2g5Z3ZrIn0.Qcm0AOjbrEP6NPJ6u-14EA'
 
@@ -226,9 +222,8 @@ print("\n")
 
 ```{python}
 #| echo: false
-
-# label: fig-wealthy
-# fig-cap: Wealthy Index
+#| label: fig-wealthy-index
+#| fig-cap: "Wealthy Index"
 
 df = df.sort_values(by=['wealthy_quartile'])
 
@@ -267,8 +262,8 @@ print("\n")
 #| echo: false
 
 
-# label: fig-wise
-# fig-cap: Wise Index
+#| label: fig-wise-index
+#| fig-cap: "Wise Index"
 
 df = df.sort_values(by=['wise_quartile'])
 
