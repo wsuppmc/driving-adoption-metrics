@@ -79,7 +79,11 @@ fig = go.Figure(data=[go.Table(
     height=30)
     )
 ])
+fig.update_layout(height=460, margin=dict(b=0))
 fig.show()
+
+print("\n")
+print("\n")
 print("\n")
 ```
 
@@ -124,8 +128,12 @@ fig = go.Figure(data=[go.Table(
     font=dict(color='black', size=12),
     height=30)
     )
+
 ])
+fig.update_layout( height=240, margin=dict(b=0))
 fig.show()
+print("\n")
+print("\n")
 ```
 
 ```{python}
@@ -170,6 +178,7 @@ fig = go.Figure(data=[go.Table(
     height=30)
     )
 ])
+fig.update_layout( height=240, margin=dict(b=0))
 fig.show()
 
 print("\n")
@@ -260,8 +269,6 @@ print("\n")
 
 ```{python}
 #| echo: false
-
-
 #| label: fig-wise-index
 #| fig-cap: "Wise Index"
 
