@@ -15,7 +15,7 @@ print("\n")
     <div class="grid-image">
       <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\healthy-wise-index.png" alt="Image 6">
     </div>
-    <p class="grid-text"><a href="posts/healthy-wealthy-wise.html">Healthy, Wealthy,and Wise Index</a></p>
+    <p class="grid-text"><a href="posts/healthy-wealthy-wise.html">Healthy, Wealthy, and Wise Index</a></p>
  </div>
    <div class="grid-item">
     <div class="grid-image">
