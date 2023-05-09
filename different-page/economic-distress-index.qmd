@@ -24,6 +24,7 @@ import plotly.figure_factory as ff
 import plotly.express as px
 from urllib.request import urlopen
 from IPython.display import Image
+from tabulate import tabulate
 from IPython.display import HTML
 ```
 
@@ -33,8 +34,7 @@ The index combines seven indicators into a single, comparative measure of econom
 
 ```{python}
 #| echo: false
-#| label: fig-indicators
-#|fig-cap: Economic Distress Indicators and Descriptions
+
 
 values = [
     [
@@ -91,7 +91,9 @@ fig = go.Figure(data=[go.Table(
     height=30)
     )
 ])
-fig.update_layout(height=405, margin=dict(b=0))
+fig.update_layout(title='Table 1: Economic Distress Indicators and Descriptions')
+
+print("\n")
 fig.show()
 print("\n")
 print("\n")
@@ -107,7 +109,7 @@ where 𝑋𝑖𝑗 is the value of indicator 𝑖 for county 𝑗.
 
 In most cases, higher values represent greater distress; however, for the median income ratio, change in employment, and change in establishments, lower values indicate greater distress. Therefore, normalization requires a slightly different formula:
 
-$$Index~Indicator_{ij} =\frac{min_{(of~105)}{X_i}~-~X_{ij}}{max
+$$Index~Indicator_{ij} =\frac{max_{(of~105)}{X_i}~-~X_{ij}}{max
 _{(of~105)}X_i~-~min_{(of~105)}X_i}*100 $$
 
 The final index value results from taking the geometric mean of the seven indicators. To handle the zeros, one is added to each normalized indicator; therefore, one is then subtracted from the calculated mean.
@@ -115,9 +117,6 @@ The final index value results from taking the geometric mean of the seven indica
 \
 \
 \
-\
-
-**Figure 1: Economic Distress Index for Kansas Counties**
 
 ```{python}
 #| echo: false
@@ -162,9 +161,6 @@ print("\n")
 print("\n")
 
 ```
-
-**Table 2: Distress Indicators and Quartiles by County\
-(1st Quartile = Least Distressed, 4th Quartile = Most Distressed)**
 
 ```{python}
 #| echo: false
