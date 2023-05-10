@@ -27,7 +27,7 @@ print("\n")
     <div class="grid-image">
       <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\migration.png" alt="Image 4">
     </div>
-    <p class="grid-text"><a href="posts/county-migration-flows.html">county Migration Flows</a></p>
+    <p class="grid-text"><a href="posts/county-migration-flows.html">County Migration Flows</a></p>
   </div>
 
 

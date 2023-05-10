@@ -26,14 +26,18 @@ from urllib.request import urlopen
 from IPython.display import Image
 from tabulate import tabulate
 from IPython.display import HTML
+
+print("\n")
 ```
 
-# Methodology
+## Methodology
 
-The index combines seven indicators into a single, comparative measure of economic well-being. The index is constructed from the U.S. Census Bureau's American Community Survey (ACS) 5-Year Estimates and County Business Patterns (CBP) datasets. Table 1 contains the seven indicators along with their descriptions and sources.
+The index combines seven indicators into a single, comparative measure of economic well-being. The index is constructed from the U.S. Census Bureau's American Community Survey (ACS) 5-Year Estimates and County Business Patterns (CBP) datasets. @fig-indicators contains the seven indicators along with their descriptions and sources.
 
 ```{python}
 #| echo: false
+#| label: fig-indicators
+#| fig-cap: "Economic Distress Indicators and Descriptions"
 
 
 values = [
@@ -91,9 +95,11 @@ fig = go.Figure(data=[go.Table(
     height=30)
     )
 ])
-fig.update_layout(title='Table 1: Economic Distress Indicators and Descriptions')
+fig.update_layout(
+    height=400, 
+    margin=dict(b=5)
+)
 
-print("\n")
 fig.show()
 print("\n")
 print("\n")
@@ -102,21 +108,40 @@ print("\n")
 
 These seven indicators are individually normalized across 105 counties on a scale of 0 to 100, where 100 represents the most distressed county and 0 represents the least distressed county. The individual indicators are normalized using the following formula:
 
-$$Index~Indicator_{ij} =\frac{X_{ij}~-~min_{(of~105)}{X_i}}{max
-_{(of~105)}X_i~-~min_{(of~105)}X_i}*100 $$
+```{python}
+#| echo: false
+print("\n")
+```
+
+$$\text{Index Indicator}_{ij} = \frac{X_{ij}-\text{min}_{(\text{of } 105)}\{X_i\}}{\text{max}_{(\text{of } 105)}\{X_i\}-\text{min}_{(\text{of } 105)}\{X_i\}} \times 100, $$
+
+```{python}
+#| echo: false
+print("\n")
+```
 
 where 𝑋𝑖𝑗 is the value of indicator 𝑖 for county 𝑗.
 
 In most cases, higher values represent greater distress; however, for the median income ratio, change in employment, and change in establishments, lower values indicate greater distress. Therefore, normalization requires a slightly different formula:
 
-$$Index~Indicator_{ij} =\frac{max_{(of~105)}{X_i}~-~X_{ij}}{max
-_{(of~105)}X_i~-~min_{(of~105)}X_i}*100 $$
+```{python}
+#| echo: false
+print("\n")
+```
+
+$$\text{Index Indicator}_{ij} = \frac{\text{max}_{(\text{of } 105)}\{X_i\}-X_{ij}}{\text{max}_{(\text{of } 105)}\{X_i\}-\text{min}_{(\text{of } 105)}\{X_i\}} \times 100. $$
+
+```{python}
+#| echo: false
+print("\n")
+```
 
 The final index value results from taking the geometric mean of the seven indicators. To handle the zeros, one is added to each normalized indicator; therefore, one is then subtracted from the calculated mean.
 
 \
 \
-\
+
+## Results
 
 ```{python}
 #| echo: false
@@ -155,6 +180,7 @@ fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b
                   mapbox_accesstoken=token,
                   mapbox=dict(style='carto-positron', zoom=6, 
                               center={'lat': 38.4937, 'lon': -98.3804},))
+                              
 
 fig.show()
 print("\n")
