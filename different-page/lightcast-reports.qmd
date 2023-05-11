@@ -1,0 +1,76 @@
+---
+title: "Economic Overview"
+subtitle: "State of Kansas, Wichita MSA, and South Kansas Coalition"
+format: 
+  html:
+    code-fold: true
+---
+
+```{python}
+#| echo: false
+print("\n")
+```
+
+## Key Insights: State of Kansas
+
+-   As of 2022 the region's population increased by 1.4% since 2017, growing by 41,868. Population is expected to increase by 2.2% between 2022 and 2027, adding 64,441.
+
+-   From 2017 to 2022, jobs increased by 1.0% in Kansas from 1,576,387 to 1,592,469. This change fell short of the national growth rate of 3.4% by 2.4%. As the number of jobs increased, the labor force participation rate decreased from 66.7% to 66.7% between 2017 and 2022.
+
+-   Concerning educational attainment, 21.8% of Kansas residents possess a Bachelor's Degree (1.0% above the national average), and 9.0% hold an Associate's Degree (0.2% above the national average).
+
+-   The top three industries in 2022 are Education and Hospitals (Local Government), Restaurants and Other Eating Places, and Local Government, Excluding Education and Hospitals.
+
+```{python}
+#| echo: false
+print("\n")
+```
+
+## Key Insights: Wichita Metropolitan Statistical Area
+
+-   As of 2022 the region's population increased by 2.3% since 2017, growing by 14,576. Population is expected to increase by 2.7% between 2022 and 2027, adding 17,672.
+
+-   From 2017 to 2022, jobs increased by 1.1% in Wichita, KS from 330,934 to 334,583. This change fell short of the national growth rate of 3.4% by 2.3%. As the number of jobs increased, the labor force participation rate increased from 63.5% to 63.7% between 2017 and 2022.
+
+-   Concerning educational attainment, 20.1% of Wichita, KS residents possess a Bachelor's Degree (0.7% below the national average), and 9.0% hold an Associate's Degree (0.1% above the national average).
+
+-   The top three industries in 2022 are Aerospace Product and Parts Manufacturing, Restaurants and Other Eating Places, and Education and Hospitals (Local Government).
+
+```{python}
+#| echo: false
+print("\n")
+```
+
+## Key Insights: South Kansas Coalition
+
+-   As of 2022 the region's population increased by 1.3% since 2017, growing by 13,577. Population is expected to increase by 2.2% between 2022 and 2027, adding 23,277.
+
+-   From 2017 to 2022, jobs increased by 0.4% in South Kansas Coalition from 507,986 to 510,046. This change fell short of the national growth rate of 3.4% by 3.0%. As the number of jobs increased, the labor force participation rate increased from 63.6% to 63.7% between 2017 and 2022.
+
+-   Concerning educational attainment, 18.5% of the selected regions' residents possess a Bachelor's Degree (2.3% below the national average), and 9.6% hold an Associate's Degree (0.7% above the national average).
+
+-   The top three industries in 2022 are Education and Hospitals (Local Government), Restaurants and Other Eating Places, and Aerospace Product and Parts Manufacturing.
+
+```{python}
+#| echo: false
+print("\n")
+```
+
+## Full Reports
+
+-   [State of Kansas](https://wichitaedu-my.sharepoint.com/:b:/g/personal/f399y945_wichita_edu/EUYjyNJruMZMkoKXpWr0JvYB9Dw2YGWesT8_b_R4KVnQYA?e=tVMpc2)
+
+-   [Wichita Metropolitan Statistical Area](https://wichitaedu-my.sharepoint.com/:b:/g/personal/f399y945_wichita_edu/EfpOonEmkEZBhfPtieK45qwBFXaNQpN13_5zclUk-s8FYg?e=lp4b9J)
+
+-   [South Kansas Coalition](https://wichitaedu-my.sharepoint.com/:b:/g/personal/f399y945_wichita_edu/EZ_hcNaIO-VOiEjafQAvqFsBvvFeZn2EKNtQ9-T0iCSw8A?e=ZfgPvB)
+
+```{python}
+#| echo: false
+print("\n")
+#| echo: false
+print("\n")
+```
+
+## Source
+
+The reports were generated using [Lightcast™](https://lightcast.io/) Developer (2023.2). The key insights above were pulled directly from these reports.
