@@ -2,9 +2,6 @@
 title: "Economic Distress Index"
 description: "A county-level measure of economic distress based on seven indicators."
 toc: false
-author: Nigel Soria
-badges: true
-categories: [census, acs, economic distress, counties]
 permalink: /distress-index/
 image: images/ks-edi.png
 ---
