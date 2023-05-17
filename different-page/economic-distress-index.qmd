@@ -102,10 +102,6 @@ fig = go.Figure(data=[go.Table(
     height=30)
     )
 ])
-fig.update_layout(
-    height=400, 
-    margin=dict(b=5)
-)
 
 fig.show()
 print("\n")
@@ -218,6 +214,8 @@ fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b
                               center={'lat': 38.4937, 'lon': -98.3804},))
 
 fig.show()
+
+
 print("\n")
 print("\n")
 
@@ -255,5 +253,4 @@ fig = go.Figure(data=[go.Table(
 ])
 
 fig.show()
-
 ```
