@@ -231,6 +231,19 @@ print("\n")
 #| label: fig-healthy-index
 #| fig-cap: "Healthy Index"
 
+skc = pd.DataFrame(
+    ['20001', '20003', '20011',
+     '20015', '20019', '20021',
+     '20031', '20035', '20037',
+     '20049', '20059', '20073',
+     '20077', '20079', '20095',
+     '20099', '20107', '20113',
+     '20115', '20121', '20125',
+     '20133', '20155', '20173',
+     '20191', '20205', '20207'], 
+    columns=['fips']
+)
+
 token = 'pk.eyJ1Ijoid3N1cHBtYyIsImEiOiJjbDA2dWNiZmEyYjRqM2lsc2hrZ2g5Z3ZrIn0.Qcm0AOjbrEP6NPJ6u-14EA'
 
 with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
@@ -258,6 +271,22 @@ for i, quartile in enumerate(df['healthy_quartile'].unique()):
         '<br>Quartile:  ' + dfp['healthy_quartile'].str.split(' ').str[0],
         hoverinfo='text'
     )
+    
+choropleth = go.Choroplethmapbox(
+        geojson=counties,
+        locations=df[df.fips.isin(skc['fips'].tolist())]['fips'],
+        z=df[df.fips.isin(skc['fips'].tolist())]['fips'],
+        zmin=0, zmax=0,
+        colorscale = [[0,'rgba(0, 0, 0, 0)'],[1,'rgba(0, 0, 0, 0)']],
+        marker_line_color='rgb(255,193,0)',
+        marker_line_width=2,
+        showscale = False,
+        text='County:  ' + df[df.fips.isin(skc['fips'].tolist())]['county'].str.title() +
+        '<br>Quartile:  ' + df[df.fips.isin(skc['fips'].tolist())]['healthy_quartile'].str.split(' ').str[0],
+        hoverinfo='text'
+    )
+
+fig.add_trace(choropleth)    
 
 fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b':0},
                   mapbox_accesstoken=token,
@@ -296,6 +325,22 @@ for i, quartile in enumerate(df['wealthy_quartile'].unique()):
         hoverinfo='text'
     )
 
+choropleth = go.Choroplethmapbox(
+        geojson=counties,
+        locations=df[df.fips.isin(skc['fips'].tolist())]['fips'],
+        z=df[df.fips.isin(skc['fips'].tolist())]['fips'],
+        zmin=0, zmax=0,
+        colorscale = [[0,'rgba(0, 0, 0, 0)'],[1,'rgba(0, 0, 0, 0)']],
+        marker_line_color='rgb(131,201,217)',
+        marker_line_width=2,
+        showscale = False,
+        text='County:  ' + df[df.fips.isin(skc['fips'].tolist())]['county'].str.title() +
+        '<br>Quartile:  ' + df[df.fips.isin(skc['fips'].tolist())]['wealthy_quartile'].str.split(' ').str[0],
+        hoverinfo='text'
+    )
+
+fig.add_trace(choropleth)     
+    
 fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b':0},
                   mapbox_accesstoken=token,
                   mapbox=dict(style='carto-positron', zoom=6, 
@@ -334,6 +379,22 @@ for i, quartile in enumerate(df['wise_quartile'].unique()):
         hoverinfo='text'
     )
 
+choropleth = go.Choroplethmapbox(
+        geojson=counties,
+        locations=df[df.fips.isin(skc['fips'].tolist())]['fips'],
+        z=df[df.fips.isin(skc['fips'].tolist())]['fips'],
+        zmin=0, zmax=0,
+        colorscale = [[0,'rgba(0, 0, 0, 0)'],[1,'rgba(0, 0, 0, 0)']],
+        marker_line_color='rgb(22,74,88)',
+        marker_line_width=2,
+        showscale = False,
+        text='County:  ' + df[df.fips.isin(skc['fips'].tolist())]['county'].str.title() +
+        '<br>Quartile:  ' + df[df.fips.isin(skc['fips'].tolist())]['wise_quartile'].str.split(' ').str[0],
+        hoverinfo='text'
+    )
+
+fig.add_trace(choropleth)     
+    
 fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b':0},
                   mapbox_accesstoken=token,
                   mapbox=dict(style='carto-positron', zoom=6, 
