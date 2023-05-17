@@ -3,9 +3,22 @@ title: "County Migration Flows"
 format: html
 ---
 
+```{python}
+#| echo: false
+print("\n")
+```
+
+## Key Insights
+
+-   Approximately half of all Kansas counties experienced a net outflow, while the other half experienced a net inflow.
+
+-   Thirteen of the 27 counties in the South Kansas Region experience a net outflow.
+
+-   The South Kansas Region as a whole experienced a net inflow, driven by large net inflows in Sedgwick County and Crawford County.
+
 ## Methodology
 
-The following data come from the U.S. Census Bureau's County-to-County Migration Flows dataset. Figure \@fig-results shows net migration for Kansas counties. Table \@tbl-results shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:
+The following data come from the U.S. Census Bureau's County-to-County Migration Flows dataset. Figure \@fig-results shows net migration for Kansas counties. Table @results shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:
 
 $$
 \text{Net Flow}_i = \text{Inflow}_i - \text{Outflow}_i,
@@ -35,6 +48,19 @@ import urllib, json
 import requests
 import matplotlib as mpl
 from IPython.display import IFrame
+
+skc = pd.DataFrame(
+    ['20001', '20003', '20011',
+     '20015', '20019', '20021',
+     '20031', '20035', '20037',
+     '20049', '20059', '20073',
+     '20077', '20079', '20095',
+     '20099', '20107', '20113',
+     '20115', '20121', '20125',
+     '20133', '20155', '20173',
+     '20191', '20205', '20207'], 
+    columns=['fips']
+)
 
 df = pd.read_csv('data/county-migration-flow-data.csv')
 
@@ -79,18 +105,24 @@ fig.update_layout(mapbox_style='carto-positron', mapbox_accesstoken=token,
                   mapbox_zoom=6, mapbox_center = {'lat': 38.4937, 'lon': -98.3804})
 fig.update_layout(margin={'r':0,'t':0,'l':0,'b':0})
 
-# choropleth = go.Choroplethmapbox(
-#         geojson=states,
-#         locations=['20'],
-#         z=[0],
-#         zmin=0, zmax=0,
-#         colorscale = [[0,'rgba(0, 0, 0, 0)'],[1,'rgba(0, 0, 0, 0)']],
-#         marker_line_color='rgb(22,74,88)',
-#         marker_line_width=2,
-#         showscale = False,
-#     )
+choropleth = go.Choroplethmapbox(
+        geojson=counties,
+        locations=df[df.fips1.isin(skc['fips'].astype(int).tolist())]['fips1'],
+        z=df[df.fips1.isin(skc['fips'].astype(int).tolist())]['fips1'],
+        zmin=0, zmax=0,
+        colorscale = [[0,'rgba(0, 0, 0, 0)'],[1,'rgba(0, 0, 0, 0)']],
+        marker_line_color='rgb(255,193,0)',
+        marker_line_width=2,
+        showscale = False,
+        text='County:  ' + df[df.fips1.isin(skc['fips'].astype(int).tolist())]['county1_name'].str.title() +
+        '<br>Inflow:   ' + df[df.fips1.isin(skc['fips'].astype(int).tolist())].inflow.apply('{0:,.0f}'.format) +
+        '<br>Outflow:  ' + df[df.fips1.isin(skc['fips'].astype(int).tolist())].outflow.apply('{0:,.0f}'.format) + 
+        '<br>Net Flow:  ' + df[df.fips1.isin(skc['fips'].astype(int).tolist())].netflow.apply('{0:,.0f}'.format),
+        hoverinfo='text'
+    )
 
-# fig.add_trace(choropleth)
+fig.add_trace(choropleth)
+
 fig.show()
 
 print("\n")

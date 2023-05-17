@@ -7,6 +7,14 @@ title: "Healthy, Wealthy, & Wise"
 print("\n")
 ```
 
+## Key Insights
+
+-   South Kansas Coalition counties constitute 11 of the 26 counties in the 4th quartile of the Healthy Index.
+
+-   Sixteen South Kansas Coalition counties fall within the 4th quartile of the Wealthy Index.
+
+-   The 4th quartile of the Wise Index contains 8 South Kansas Coaltion counties.
+
 ## Methodology
 
 The Healthy, Wealthy, and Wise indices combine multiple indicators into a single, comparative measure of economic well-being. The index is constructed from the U.S. Census Bureau's American Community Survey (ACS) 5-Year Estimates and County Business Patterns (CBP) datasets. Tables @fig-healthy, @fig-wealthy, and @fig-wise contain the indicators for the respective index.
@@ -148,7 +156,6 @@ fig = go.Figure(data=[go.Table(
     font=dict(color='black', size=12),
     height=30)
     )
-
 ])
 
 fig.update_layout(

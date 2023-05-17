@@ -27,6 +27,16 @@ from IPython.display import HTML
 print("\n")
 ```
 
+## Key Insights
+
+-   Eleven of the 27 counties in the South Kansas Region fall within the fourth quartile (i.e., most distressed) of the index for all Kansas counties.
+
+-   Only five of the 27 counties in the South Kansas Region fall within the first quartile (i.e., least distressed) of the index for all Kansas counties.
+
+-   Chautauqua County is the most distressed county in Kansas (and the South Kansas Region).
+
+-   Miami County is the least distressed county in the South Kansas Region.
+
 ## Methodology
 
 The index combines seven indicators into a single, comparative measure of economic well-being. The index is constructed from the U.S. Census Bureau's American Community Survey (ACS) 5-Year Estimates and County Business Patterns (CBP) datasets. @fig-indicators contains the seven indicators along with their descriptions and sources.
@@ -145,6 +155,19 @@ The final index value results from taking the geometric mean of the seven indica
 #| label: fig-results
 #| fig-cap: Economic Distress Index for Kansas Counties
 
+skc = pd.DataFrame(
+    ['20001', '20003', '20011',
+     '20015', '20019', '20021',
+     '20031', '20035', '20037',
+     '20049', '20059', '20073',
+     '20077', '20079', '20095',
+     '20099', '20107', '20113',
+     '20115', '20121', '20125',
+     '20133', '20155', '20173',
+     '20191', '20205', '20207'], 
+    columns=['fips']
+)
+
 token = 'pk.eyJ1Ijoid3N1cHBtYyIsImEiOiJjbDA2dWNiZmEyYjRqM2lsc2hrZ2g5Z3ZrIn0.Qcm0AOjbrEP6NPJ6u-14EA'
 
 with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
@@ -173,11 +196,26 @@ for i, quartile in enumerate(df['index_quartile'].unique()):
         hoverinfo='text'
     )
 
+choropleth = go.Choroplethmapbox(
+        geojson=counties,
+        locations=df[df.fips.isin(skc['fips'].tolist())]['fips'],
+        z=df[df.fips.isin(skc['fips'].tolist())]['fips'],
+        zmin=0, zmax=0,
+        colorscale = [[0,'rgba(0, 0, 0, 0)'],[1,'rgba(0, 0, 0, 0)']],
+        marker_line_color='rgb(131,201,217)',
+        marker_line_width=2,
+        showscale = False,
+        text='County:  ' + df[df.fips.isin(skc['fips'].tolist())]['county'].str.title() +
+        '<br>Quartile:  ' + df[df.fips.isin(skc['fips'].tolist())]['index_quartile'].str.split(' ').str[0],
+        hoverinfo='text'
+    )
+
+fig.add_trace(choropleth)       
+    
 fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b':0},
                   mapbox_accesstoken=token,
                   mapbox=dict(style='carto-positron', zoom=6, 
                               center={'lat': 38.4937, 'lon': -98.3804},))
-                              
 
 fig.show()
 print("\n")
@@ -215,7 +253,7 @@ fig = go.Figure(data=[go.Table(
                font=dict(color='black', size=12),
                align=['left', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'center']))
 ])
-fig.update_layout( margin=dict(b=5))
+
 fig.show()
 
 ```
