@@ -18,7 +18,7 @@ print("\n")
 
 ## Methodology
 
-The following data come from the U.S. Census Bureau's County-to-County Migration Flows dataset. Figure \@fig-results shows net migration for Kansas counties. Table @results shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:
+The following data come from the U.S. Census Bureau's County-to-County Migration Flows dataset. Figure \@fig-results shows net migration for Kansas counties. Table @fig-migration shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:
 
 $$
 \text{Net Flow}_i = \text{Inflow}_i - \text{Outflow}_i,
@@ -30,6 +30,8 @@ where $\text{Net Flow}_i < 0$ indicates the number of indiviuals leaving county 
 
 ```{python}
 #| echo: false
+#| label: fig-results
+#| fig-cap: Net Migration Flows for Kansas Counties
 
 import folium
 import json
@@ -134,6 +136,10 @@ print("\n")
 
 ```{python}
 #| echo: false
+#| label: fig-migration
+#| fig-cap: Population Migration Flows for Kansas Counties
+
+
 df = df.sort_values(by=['netflow'], ascending=False)
 
 names = [
