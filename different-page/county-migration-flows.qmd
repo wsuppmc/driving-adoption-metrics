@@ -18,7 +18,7 @@ print("\n")
 
 ## Methodology
 
-The following data come from the U.S. Census Bureau's County-to-County Migration Flows dataset. Figure \@fig-results shows net migration for Kansas counties. @fig-results shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:
+The following data come from the U.S. Census Bureau's County-to-County Migration Flows dataset. Figure @fig-results shows net migration for Kansas counties. @fig-migration shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:
 
 $$
 \text{Net Flow}_i = \text{Inflow}_i - \text{Outflow}_i,

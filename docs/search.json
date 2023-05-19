@@ -81,7 +81,7 @@
     "href": "different-page/county-migration-flows.html#methodology",
     "title": "County Migration Flows",
     "section": "Methodology",
-    "text": "Methodology\nThe following data come from the U.S. Census Bureau’s County-to-County Migration Flows dataset. Figure @fig-results shows net migration for Kansas counties. Figure 1 shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:\n\\[\n\\text{Net Flow}_i = \\text{Inflow}_i - \\text{Outflow}_i,\n\\]\nwhere \\(\\text{Net Flow}_i &lt; 0\\) indicates the number of indiviuals leaving county 𝑖 exceeded the number of individuals entering county 𝑖 during the sampling period."
+    "text": "Methodology\nThe following data come from the U.S. Census Bureau’s County-to-County Migration Flows dataset. Figure Figure 1 shows net migration for Kansas counties. Figure 2 shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:\n\\[\n\\text{Net Flow}_i = \\text{Inflow}_i - \\text{Outflow}_i,\n\\]\nwhere \\(\\text{Net Flow}_i &lt; 0\\) indicates the number of indiviuals leaving county 𝑖 exceeded the number of individuals entering county 𝑖 during the sampling period."
   },
   {
     "objectID": "different-page/county-migration-flows.html#results",
