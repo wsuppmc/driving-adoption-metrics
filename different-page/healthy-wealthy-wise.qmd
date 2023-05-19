@@ -226,6 +226,8 @@ print("\n")
 
 ## Results
 
+\*\*Note:\*\* The borders of the counties in the South Kansas Coaltion are highlighted in the maps below.
+
 ```{python}
 #| echo: false
 #| label: fig-healthy-index

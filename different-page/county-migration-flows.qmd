@@ -18,7 +18,7 @@ print("\n")
 
 ## Methodology
 
-The following data come from the U.S. Census Bureau's County-to-County Migration Flows dataset. Figure \@fig-results shows net migration for Kansas counties. Table @fig-migration shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:
+The following data come from the U.S. Census Bureau's County-to-County Migration Flows dataset. Figure \@fig-results shows net migration for Kansas counties. @fig-results shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:
 
 $$
 \text{Net Flow}_i = \text{Inflow}_i - \text{Outflow}_i,
@@ -27,6 +27,8 @@ $$
 where $\text{Net Flow}_i < 0$ indicates the number of indiviuals leaving county 𝑖 exceeded the number of individuals entering county 𝑖 during the sampling period.
 
 ## Results
+
+\*\*Note:\*\* The borders of the counties in the South Kansas Coaltion are highlighted in the map below.
 
 ```{python}
 #| echo: false

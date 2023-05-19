@@ -81,14 +81,14 @@
     "href": "different-page/county-migration-flows.html#methodology",
     "title": "County Migration Flows",
     "section": "Methodology",
-    "text": "Methodology\nThe following data come from the U.S. Census Bureau’s County-to-County Migration Flows dataset. Figure @fig-results shows net migration for Kansas counties. Table Figure 2 shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:\n\\[\n\\text{Net Flow}_i = \\text{Inflow}_i - \\text{Outflow}_i,\n\\]\nwhere \\(\\text{Net Flow}_i &lt; 0\\) indicates the number of indiviuals leaving county 𝑖 exceeded the number of individuals entering county 𝑖 during the sampling period."
+    "text": "Methodology\nThe following data come from the U.S. Census Bureau’s County-to-County Migration Flows dataset. Figure @fig-results shows net migration for Kansas counties. Figure 1 shows inflow, outflow, and net flow by county. Net flow (i.e., migration) is given by the following simple calculation:\n\\[\n\\text{Net Flow}_i = \\text{Inflow}_i - \\text{Outflow}_i,\n\\]\nwhere \\(\\text{Net Flow}_i &lt; 0\\) indicates the number of indiviuals leaving county 𝑖 exceeded the number of individuals entering county 𝑖 during the sampling period."
   },
   {
     "objectID": "different-page/county-migration-flows.html#results",
     "href": "different-page/county-migration-flows.html#results",
     "title": "County Migration Flows",
     "section": "Results",
-    "text": "Results\n\n\n\n\n                                                \nFigure 1: Net Migration Flows for Kansas Counties"
+    "text": "Results\n**Note:** The borders of the counties in the South Kansas Coaltion are highlighted in the map below.\n\n\n\n\n                                                \nFigure 1: Net Migration Flows for Kansas Counties"
   },
   {
     "objectID": "different-page/county-migration-flows.html#population-migration-flows-for-kansas-counties",
@@ -137,7 +137,7 @@
     "href": "different-page/healthy-wealthy-wise.html#results",
     "title": "Healthy, Wealthy, & Wise",
     "section": "Results",
-    "text": "Results\n\n\n\n\n                                                \nFigure 4: Healthy Index\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                \nFigure 5: Wealthy Index\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                \nFigure 6: Wise Index"
+    "text": "Results\n**Note:** The borders of the counties in the South Kansas Coaltion are highlighted in the maps below.\n\n\n\n\n                                                \nFigure 4: Healthy Index\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                \nFigure 5: Wealthy Index\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                \nFigure 6: Wise Index"
   },
   {
     "objectID": "different-page/healthy-wealthy-wise.html#section",
@@ -158,7 +158,7 @@
     "href": "different-page/economic-distress-index.html#results",
     "title": "Economic Distress Index",
     "section": "Results",
-    "text": "Results\n\n\n\n\n                                                \nFigure 2: Economic Distress Index for Kansas Counties\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                \nFigure 3: Distress Indicators and Quartiles by County(1st Quartile = Least Distressed, 4th Quartile = Most Distressed)"
+    "text": "Results\n**Note:** The borders of the counties in the South Kansas Coaltion are highlighted in the map below.\n\n\n\n\n                                                \nFigure 2: Economic Distress Index for Kansas Counties\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                \nFigure 3: Distress Indicators and Quartiles by County(1st Quartile = Least Distressed, 4th Quartile = Most Distressed)"
   },
   {
     "objectID": "different-page/economic-distress-index.html#methodology",
