@@ -27,3 +27,7 @@ format:
     toc: false
     css: styles.css
     footer: footer.html
+    
+server:
+  port: 8050
+

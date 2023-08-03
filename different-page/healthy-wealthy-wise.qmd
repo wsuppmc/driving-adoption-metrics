@@ -1,6 +1,7 @@
 ---
 title: "Healthy, Wealthy, & Wise"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ---
 
 ```{python}
@@ -8,6 +9,12 @@ title: "Healthy, Wealthy, & Wise"
 print("\n")
 ```
 
+=======
+server:
+  port: 8050
+---
+
+>>>>>>> Stashed changes
 =======
 server:
   port: 8050
@@ -25,17 +32,17 @@ server:
 ## Methodology
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 The Healthy, Wealthy, and Wise indices combine multiple indicators into a single, comparative measure of economic well-being. The index is constructed from the U.S. Census Bureau's American Community Survey (ACS) 5-Year Estimates and County Business Patterns (CBP) datasets. @fig-healthy, @fig-wealthy, and @fig-wise contain the indicators for the respective index.
+=======
+The Healthy, Wealthy, and Wise indices combine multiple indicators into a single, comparative measure of economic well-being. The index is constructed from the U.S. Census Bureau's American Community Survey (ACS) 5-Year Estimates and County Business Patterns (CBP) datasets. fig-healthy, fig-wealthy, and fig-wise contain the indicators for the respective index.
+>>>>>>> Stashed changes
 
 The individual indicators are individually normalized across 105 counties on a scale of 0 to 100, where 100 represents the most distressed county and 0 represents the least distressed county. The individual indicators are normalized using the following formula:
 
-```{python}
-#| echo: false
-print("\n")
-```
-
 $$\text{Index Indicator}_{ij} = \frac{X_{ij}-\text{min}_{(\text{of } 105)}\{X_i\}}{\text{max}_{(\text{of } 105)}\{X_i\}-\text{min}_{(\text{of } 105)}\{X_i\}} \times 100,$$
 
+<<<<<<< Updated upstream
 ```{python}
 #| echo: false
 print("\n")
@@ -48,6 +55,8 @@ The individual indicators are individually normalized across 105 counties on a s
 
 $$\text{Index Indicator}_{ij} = \frac{X_{ij}-\text{min}_{(\text{of } 105)}\{X_i\}}{\text{max}_{(\text{of } 105)}\{X_i\}-\text{min}_{(\text{of } 105)}\{X_i\}} \times 100,$$
 
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 where $X_{ij}$ is the value of indicator $i$ for county $j$. The final index value results from taking the geometric mean of the respective indicators. To handle the zeros, one is added to each normalized indicator; therefore, one is then subtracted from the calculated mean.
 
@@ -68,6 +77,7 @@ from urllib.request import urlopen
 from IPython.display import Image
 from IPython.display import HTML
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 print("\n")
 print("\n")
@@ -241,10 +251,13 @@ print("\n")
 print("\n")
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 ```
 
 ## Results
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 \*\*Note:\*\* The borders of the counties in the South Kansas Coaltion are highlighted in the maps below.
 
@@ -424,6 +437,8 @@ fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b
 
 fig.show()
 =======
+=======
+>>>>>>> Stashed changes
 ```{=html}
 <!DOCTYPE html>
 <html>
@@ -434,5 +449,8 @@ fig.show()
     <iframe src="http://127.0.0.1:8050/" width="100%" height="600"></iframe>
 </body>
 </html>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 ```
