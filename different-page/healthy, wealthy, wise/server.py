@@ -24,6 +24,16 @@ from some_college_ind import some_college_ind_fig
 from high_school_ind import high_school_ind_fig
 from wise_ind import wise_ind_fig
 
+from distress import distress_fig
+from hs_lower import hs_lower_fig
+from vacancy_rate import vacancy_rate_fig
+from unemployment_rate import unemployment_rate_fig
+from poverty_rate import poverty_rate_fig
+from med_inc_rate import med_inc_rate_fig
+from emp_chg import emp_chg_fig
+from est_chg import est_chg_fig
+
+
 health_maps = {
     "Health Indicator": health_indicator_fig,
     "% Fair or Poor Health": fair_poor_fig,
@@ -52,6 +62,17 @@ wise_maps = {
     "Social Association Rate": soc_assoc_ind_fig
 }
 
+distress_maps = {
+    "Distress Indicator":distress_fig,
+    "No Highschool Diploma": hs_lower_fig,
+    "Housing Vacancy Rate": vacancy_rate_fig,
+    "Unemployment Rate": unemployment_rate_fig,
+    "Poverty Rate": poverty_rate_fig,
+    "Median Income Ratio": med_inc_rate_fig,
+    "Change in Employement": emp_chg_fig,
+    "Change in Establishment": est_chg_fig
+}
+
 server = flask.Flask(__name__)
 app = dash.Dash(__name__)
 
@@ -65,7 +86,9 @@ app.layout = html.Div([
         options=[
             {'label': 'Health Index', 'value': 'health'},
             {'label': 'Wealth Index', 'value': 'wealth'},
-            {'label': 'Wise Index', 'value': 'wise'}
+            {'label': 'Wise Index', 'value': 'wise'},
+            {'label': 'Distress Index', 'value': 'distress'}
+
         ],
         value='health',
         style={'width': '40%', 'display': 'inline-block'}
@@ -97,6 +120,9 @@ def update_map_options(index_type):
     elif index_type == 'wise':
         options = [{'label': option, 'value': option} for option in wise_maps.keys()]
         value = list(wise_maps.keys())[0]
+    elif index_type == 'distress':
+        options = [{'label': option, 'value': option} for option in distress_maps.keys()]
+        value = list(distress_maps.keys())[0]
     else:
         options = []
         value = None
