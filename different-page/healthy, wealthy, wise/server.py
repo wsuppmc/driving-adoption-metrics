@@ -141,6 +141,8 @@ def update_main_map(index_type, map_option):
         map_data = wealth_maps.get(map_option, None)
     elif index_type == 'wise':
         map_data = wise_maps.get(map_option, None)
+    elif index_type == 'distress':
+        map_data = distress_maps.get(map_option, None)
     else:
         map_data = None
 

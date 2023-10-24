@@ -150,109 +150,114 @@ The final index value results from taking the geometric mean of the seven indica
 
 ```{python}
 #| echo: false
-#| label: fig-results
-#| fig-cap: Economic Distress Index for Kansas Counties
 
-skc = pd.DataFrame(
-    ['20001', '20003', '20011',
-     '20015', '20019', '20021',
-     '20031', '20035', '20037',
-     '20049', '20059', '20073',
-     '20077', '20079', '20095',
-     '20099', '20107', '20113',
-     '20115', '20121', '20125',
-     '20133', '20155', '20173',
-     '20191', '20205', '20207'], 
-    columns=['fips']
-)
+# #| label: fig-results
+# #| fig-cap: Economic Distress Index for Kansas Counties
 
-token = 'pk.eyJ1Ijoid3N1cHBtYyIsImEiOiJjbDA2dWNiZmEyYjRqM2lsc2hrZ2g5Z3ZrIn0.Qcm0AOjbrEP6NPJ6u-14EA'
+# skc = pd.DataFrame(
+#     ['20001', '20003', '20011',
+#      '20015', '20019', '20021',
+#      '20031', '20035', '20037',
+#      '20049', '20059', '20073',
+#      '20077', '20079', '20095',
+#      '20099', '20107', '20113',
+#      '20115', '20121', '20125',
+#      '20133', '20155', '20173',
+#      '20191', '20205', '20207'],
+#     columns=['fips']
+# )
 
-with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
-    counties = json.load(response)  
+# token = 'pk.eyJ1Ijoid3N1cHBtYyIsImEiOiJjbDA2dWNiZmEyYjRqM2lsc2hrZ2g5Z3ZrIn0.Qcm0AOjbrEP6NPJ6u-14EA'
 
-df = pd.read_csv('data/2020-distress-index-data.csv', dtype={'fips':'str'})
-df = df.sort_values(by=['index_quartile'])
+# with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
+#     counties = json.load(response)
 
-colorscales = [
-    ((0.0, 'rgba(231,38,40,0.25)'), (1.0, 'rgba(231,38,40,0.25)')),
-    ((0.0, 'rgba(231,38,40,0.5)'), (1.0, 'rgba(231,38,40,0.5)')),
-    ((0.0, 'rgba(231,38,40,0.75)'), (1.0, 'rgba(231,38,40,0.75)')),
-    ((0.0, 'rgba(231,38,40,1.0)'), (1.0, 'rgba(231,38,40,1.0)'))
-]
+# df = pd.read_csv('data/2020-distress-index-data.csv', dtype={'fips': 'str'})
+# df = df.sort_values(by=['index_quartile'])
 
-fig = go.Figure()
-for i, quartile in enumerate(df['index_quartile'].unique()):
-    dfp = df[df['index_quartile'] == quartile]
-    fig.add_choroplethmapbox(
-        geojson=counties, locations=dfp['fips'],
-        z=[i,] * len(dfp), featureidkey='id',
-        showlegend=True, name=quartile,
-        colorscale=colorscales[i], showscale=False,
-        text='County:  ' + dfp['county'].str.title() +
-        '<br>Quartile:  ' + dfp['index_quartile'].str.split(' ').str[0],
-        hoverinfo='text'
-    )
+# colorscales = [
+#     ((0.0, 'rgba(231,38,40,0.25)'), (1.0, 'rgba(231,38,40,0.25)')),
+#     ((0.0, 'rgba(231,38,40,0.5)'), (1.0, 'rgba(231,38,40,0.5)')),
+#     ((0.0, 'rgba(231,38,40,0.75)'), (1.0, 'rgba(231,38,40,0.75)')),
+#     ((0.0, 'rgba(231,38,40,1.0)'), (1.0, 'rgba(231,38,40,1.0)'))
+# ]
 
-choropleth = go.Choroplethmapbox(
-        geojson=counties,
-        locations=df[df.fips.isin(skc['fips'].tolist())]['fips'],
-        z=df[df.fips.isin(skc['fips'].tolist())]['fips'],
-        zmin=0, zmax=0,
-        colorscale = [[0,'rgba(0, 0, 0, 0)'],[1,'rgba(0, 0, 0, 0)']],
-        marker_line_color='rgb(131,201,217)',
-        marker_line_width=2,
-        showscale = False,
-        text='County:  ' + df[df.fips.isin(skc['fips'].tolist())]['county'].str.title() +
-        '<br>Quartile:  ' + df[df.fips.isin(skc['fips'].tolist())]['index_quartile'].str.split(' ').str[0],
-        hoverinfo='text'
-    )
+# fig = go.Figure()
+# for i, quartile in enumerate(df['index_quartile'].unique()):
+#     dfp = df[df['index_quartile'] == quartile]
+#     fig.add_choroplethmapbox(
+#         geojson=counties, locations=dfp['fips'],
+#         z=[i,] * len(dfp), featureidkey='id',
+#         showlegend=True, name=quartile,
+#         colorscale=colorscales[i], showscale=False,
+#         text='County:  ' + dfp['county'].str.title() +
+#         '<br>Quartile:  ' + dfp['index_quartile'].str.split(' ').str[0],
+#         hoverinfo='text'
+#     )
 
-fig.add_trace(choropleth)       
-    
-fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b':0},
-                  mapbox_accesstoken=token,
-                  mapbox=dict(style='carto-positron', zoom=6, 
-                              center={'lat': 38.4937, 'lon': -98.3804},))
+# choropleth = go.Choroplethmapbox(
+#         geojson=counties,
+#         locations=df[df.fips.isin(skc['fips'].tolist())]['fips'],
+#         z=df[df.fips.isin(skc['fips'].tolist())]['fips'],
+#         zmin=0, zmax=0,
+#         colorscale = [[0,'rgba(0, 0, 0, 0)'],[1,'rgba(0, 0, 0, 0)']],
+#         marker_line_color='rgb(131,201,217)',
+#         marker_line_width=2,
+#         showscale = False,
+#         text='County:  ' + df[df.fips.isin(skc['fips'].tolist())]['county'].str.title() +
+#         '<br>Quartile:  ' + df[df.fips.isin(skc['fips'].tolist())]['index_quartile'].str.split(' ').str[0],
+#         hoverinfo='text'
+#     )
 
-fig.show()
+# fig.add_trace(choropleth)
 
+# fig.update_layout(legend_title='Index Performance', margin={'r':0,'t':0,'l':0,'b':0},
+#                   mapbox_accesstoken=token,
+#                   mapbox=dict(style='carto-positron', zoom=6,
+#                               center={'lat': 38.4937, 'lon': -98.3804},))
 
-print("\n")
-print("\n")
+# fig.show()
+# print("\n")
+# print("\n")
 
 ```
 
 ```{python}
 #| echo: false
-#| label: fig-results-next
-#| fig-cap: Distress Indicators and Quartiles by County<br>(1st Quartile = Least Distressed, 4th Quartile = Most Distressed)
 
-df = df.sort_values(by=['county'])
 
-names = [
-    '<b>County</b>', '<b>No HS Diploma</b>', '<b>Unemp Rate</b>', 
-    '<b>Poverty Rate</b>', '<b>Median Income</b>', '<b>Estab Change</b>', 
-    '<b>Emp Change</b>', '<b>Vacancy Rate</b>', '<b>Distress Index</b>', '<b>Index Quartile</b>'
-]
+# #| fig-cap: Distress Indicators and Quartiles by County<br>(1st Quartile = Least Distressed, 4th Quartile = Most Distressed)
 
-fig = go.Figure(data=[go.Table(
-    columnwidth = [15]+[10]*9,
-    header=dict(values=names,
-                line_color='darkslategray',
-                fill_color='rgb(131,201,217)',
-                font=dict(color='white', size=12),
-                align='center'),
-    cells=dict(values=[df.county, df.hs_lower.apply('{0:.2f}'.format), df.unemployment_rate.apply('{0:.2f}'.format), 
-                       df.poverty_rate.apply('{0:.2f}'.format), df.med_inc_rate.apply('{0:.2f}'.format), 
-                       df.est_chg.apply('{0:.2f}'.format), df.emp_chg.apply('{0:.2f}'.format), 
-                       df.vacancy_rate.apply('{0:.2f}'.format), df.distress_index.apply('{0:.2f}'.format), 
-                       df.index_quartile.str.split(' ').str[0]],
-               line_color='darkslategray',
-               fill_color=['rgba(131,201,217,0.2)','white'],
-               font=dict(color='black', size=12),
-               align=['left', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'center']))
-])
+# df = df.sort_values(by=['county'])
 
-fig.show()
+# names = [
+#     '<b>County</b>', '<b>No HS Diploma</b>', '<b>Unemp Rate</b>', 
+#     '<b>Poverty Rate</b>', '<b>Median Income</b>', '<b>Estab Change</b>', 
+#     '<b>Emp Change</b>', '<b>Vacancy Rate</b>', '<b>Distress Index</b>', '<b>Index Quartile</b>'
+# ]
+
+# fig = go.Figure(data=[go.Table(
+#     columnwidth = [15]+[10]*9,
+#     header=dict(values=names,
+#                 line_color='darkslategray',
+#                 fill_color='rgb(131,201,217)',
+#                 font=dict(color='white', size=12),
+#                 align='center'),
+#     cells=dict(values=[df.county, df.hs_lower.apply('{0:.2f}'.format), df.unemployment_rate.apply('{0:.2f}'.format), 
+#                        df.poverty_rate.apply('{0:.2f}'.format), df.med_inc_rate.apply('{0:.2f}'.format), 
+#                        df.est_chg.apply('{0:.2f}'.format), df.emp_chg.apply('{0:.2f}'.format), 
+#                        df.vacancy_rate.apply('{0:.2f}'.format), df.distress_index.apply('{0:.2f}'.format), 
+#                        df.index_quartile.str.split(' ').str[0]],
+#                line_color='darkslategray',
+#                fill_color=['rgba(131,201,217,0.2)','white'],
+#                font=dict(color='black', size=12),
+#                align=['left', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'center']))
+# ])
+
+# fig.show()
+
+```
+
+```{=html}
+<div class='tableauPlaceholder' id='viz1698166602917' style='position: relative'><noscript><a href='#'><img alt='maps ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ta&#47;Tableaudata_16980976681680&#47;maps&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Tableaudata_16980976681680&#47;maps' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ta&#47;Tableaudata_16980976681680&#47;maps&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1698166602917');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
 ```
