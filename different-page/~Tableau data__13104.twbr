@@ -22,7 +22,7 @@
     <WindowsPersistSimpleIdentifiers />
     <ZoneBackgroundTransparency />
   </document-format-change-manifest>
-  <repository-location id='Tableaudata_16980976681680' path='/workbooks' revision='1.0' />
+  <repository-location id='Tableaudata_16980976681680' path='/workbooks' revision='1.1' />
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
     <preference name='ui.shelf.height' value='26' />
@@ -59,8 +59,8 @@
           <member value='&quot;\% Uninsured&quot;' />
         </members>
       </column>
-      <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Wealthy Index&quot;'>
-        <calculation class='tableau' formula='&quot;Wealthy Index&quot;' />
+      <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Children in Poverty&quot;'>
+        <calculation class='tableau' formula='&quot;Children in Poverty&quot;' />
         <members>
           <member value='&quot;Wealthy Index&quot;' />
           <member value='&quot;Income Ratio&quot;' />
@@ -88,6 +88,13 @@
           <member value='&quot;Median Income Ratio&quot;' />
           <member value='&quot;Change in Employement&quot;' />
           <member value='&quot;Change in Establishment&quot;' />
+        </members>
+      </column>
+      <column caption='colors' datatype='boolean' name='[Parameter 6]' param-domain-type='list' role='measure' type='nominal' value='true'>
+        <calculation class='tableau' formula='true' />
+        <members>
+          <member value='true' />
+          <member value='false' />
         </members>
       </column>
       <style>
@@ -338,7 +345,6 @@
           <map key='[wise_index]' value='[healthy-wealthy-wise-data].[wise_index]' />
           <map key='[wise_quartile]' value='[healthy-wealthy-wise-data].[wise_quartile]' />
         </cols>
-        <refresh increment-key='' incremental-updates='false' />
         <metadata-records>
           <metadata-record class='capability'>
             <remote-name />
@@ -1709,6 +1715,40 @@
       <column caption='Wise mech' datatype='string' name='[Calculation_1970324848102776834]' role='dimension' type='nominal'>
         <calculation class='tableau' formula='(CASE [Parameters].[Parameter 4]&#13;&#10;WHEN &apos;Wise Index&apos; THEN [wise_quartile]&#13;&#10;WHEN &apos;Completed Highschool&apos; THEN [high_school_quartile]&#13;&#10;WHEN &apos;Some College&apos; THEN [some_college_quartile]&#13;&#10;WHEN &apos;Social Association Rate&apos; THEN [soc_assoc_quartile]&#13;&#10;END)' />
       </column>
+      <column caption='Calculation1' datatype='boolean' name='[Calculation_922112040839659520]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='iF [Parameters].[Parameter 6] == TRUE THEN [County (Healthy-Wealthy-Wise-Data) (group)] == &apos;RED&apos;&#13;&#10;END' />
+      </column>
+      <column datatype='string' name='[County (Healthy-Wealthy-Wise-Data) (group)]' role='dimension' semantic-role='[County].[Name]' type='nominal'>
+        <calculation class='categorical-bin' column='[county (healthy-wealthy-wise-data)]' default='&quot;Other&quot;' new-bin='true'>
+          <bin default-name='true' value='&quot;Allen, Anderson, Bourbon and 22 more&quot;'>
+            <value>&quot;Allen&quot;</value>
+            <value>&quot;Anderson&quot;</value>
+            <value>&quot;Bourbon&quot;</value>
+            <value>&quot;Butler&quot;</value>
+            <value>&quot;Chautauqua&quot;</value>
+            <value>&quot;Cherokee&quot;</value>
+            <value>&quot;Coffey&quot;</value>
+            <value>&quot;Cowley&quot;</value>
+            <value>&quot;Crawford&quot;</value>
+            <value>&quot;Elk&quot;</value>
+            <value>&quot;Franklin&quot;</value>
+            <value>&quot;Greenwood&quot;</value>
+            <value>&quot;Harper&quot;</value>
+            <value>&quot;Kingman&quot;</value>
+            <value>&quot;Labette&quot;</value>
+            <value>&quot;Linn&quot;</value>
+            <value>&quot;Lyon&quot;</value>
+            <value>&quot;Miami&quot;</value>
+            <value>&quot;Montgomery&quot;</value>
+            <value>&quot;Neosho&quot;</value>
+            <value>&quot;Osage&quot;</value>
+            <value>&quot;Sedgwick&quot;</value>
+            <value>&quot;Sumner&quot;</value>
+            <value>&quot;Wilson&quot;</value>
+            <value>&quot;Woodson&quot;</value>
+          </bin>
+        </calculation>
+      </column>
       <column datatype='string' name='[Description (Sheet11)]' role='dimension' type='nominal' />
       <column datatype='string' name='[Description (Sheet12)]' role='dimension' type='nominal' />
       <column datatype='string' name='[Description (Sheet13)]' role='dimension' type='nominal' />
@@ -1790,11 +1830,42 @@
       <column caption='Wealthy Quartile' datatype='string' name='[wealthy_quartile]' role='dimension' type='nominal' />
       <column caption='Wise Index' datatype='real' name='[wise_index]' role='measure' type='quantitative' />
       <column caption='Wise Quartile' datatype='string' name='[wise_quartile]' role='dimension' type='nominal' />
+      <column-instance column='[County (Healthy-Wealthy-Wise-Data) Set]' derivation='InOut' name='[io:County (Healthy-Wealthy-Wise-Data) Set:nk]' pivot='key' type='nominal' />
       <column-instance column='[Calculation_1836342760273096706]' derivation='None' name='[none:Calculation_1836342760273096706:nk]' pivot='key' type='nominal' />
       <column-instance column='[Calculation_1836342760276148227]' derivation='None' name='[none:Calculation_1836342760276148227:nk]' pivot='key' type='nominal' />
       <column-instance column='[Calculation_1836342760282431492]' derivation='None' name='[none:Calculation_1836342760282431492:nk]' pivot='key' type='nominal' />
       <column-instance column='[Calculation_1970324848085164032]' derivation='None' name='[none:Calculation_1970324848085164032:nk]' pivot='key' type='nominal' />
       <column-instance column='[Calculation_1970324848102776834]' derivation='None' name='[none:Calculation_1970324848102776834:nk]' pivot='key' type='nominal' />
+      <column-instance column='[county (healthy-wealthy-wise-data)]' derivation='None' name='[none:county (healthy-wealthy-wise-data):nk]' pivot='key' type='nominal' />
+      <group caption='County (Healthy-Wealthy-Wise-Data) Set' name='[County (Healthy-Wealthy-Wise-Data) Set]' name-style='unqualified' user:ui-builder='filter-group'>
+        <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Allen&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Anderson&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Bourbon&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Butler&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Chautauqua&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Cherokee&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Coffey&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Cowley&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Crawford&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Elk&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Franklin&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Greenwood&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Harper&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Kingman&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Labette&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Linn&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Lyon&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Miami&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Montgomery&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Neosho&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Osage&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Sedgwick&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Sumner&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Wilson&quot;' />
+          <groupfilter function='member' level='[none:county (healthy-wealthy-wise-data):nk]' member='&quot;Woodson&quot;' />
+        </groupfilter>
+      </group>
       <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
         <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/k332z234/Documents/driving-adoption-metrics/different-page/2020-distress-index-data (Multiple Connections).hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
           <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='2020-distress-index-data_55AB738920B34468805B3D79A707D313' table='[Extract].[2020-distress-index-data_55AB738920B34468805B3D79A707D313]' type='table' />
@@ -3332,6 +3403,64 @@
               <bucket>&quot;2nd Quartile&quot;</bucket>
             </map>
           </encoding>
+          <encoding attr='color' field='[none:Calculation_1836342760276148227:nk]&#10;[io:County (Healthy-Wealthy-Wise-Data) Set:nk]' type='palette'>
+            <map to='#59a14f'>
+              <multibucket>
+                <bucket>&quot;2nd Quartile&quot;</bucket>
+                <bucket>false</bucket>
+              </multibucket>
+            </map>
+            <map to='#75a1c7'>
+              <multibucket>
+                <bucket>&quot;1st Quartile&quot;</bucket>
+                <bucket>true</bucket>
+              </multibucket>
+            </map>
+            <map to='#76b7b2'>
+              <multibucket>
+                <bucket>&quot;3rd Quartile&quot;</bucket>
+                <bucket>true</bucket>
+              </multibucket>
+            </map>
+            <map to='#d3b348'>
+              <multibucket>
+                <bucket>&quot;4th Quartile&quot;</bucket>
+                <bucket>true</bucket>
+              </multibucket>
+            </map>
+            <map to='#e15759'>
+              <multibucket>
+                <bucket>&quot;2nd Quartile&quot;</bucket>
+                <bucket>true</bucket>
+              </multibucket>
+            </map>
+            <map to='#edc948'>
+              <multibucket>
+                <bucket>&quot;3rd Quartile&quot;</bucket>
+                <bucket>false</bucket>
+              </multibucket>
+            </map>
+            <map to='#f28e2b'>
+              <multibucket>
+                <bucket>&quot;1st Quartile&quot;</bucket>
+                <bucket>false</bucket>
+              </multibucket>
+            </map>
+            <map to='#ff9da7'>
+              <multibucket>
+                <bucket>&quot;4th Quartile&quot;</bucket>
+                <bucket>false</bucket>
+              </multibucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[County (Healthy-Wealthy-Wise-Data) (group)]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Allen, Anderson, Bourbon and 22 more&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Other&quot;</bucket>
+            </map>
+          </encoding>
         </style-rule>
       </style>
       <semantic-values>
@@ -3346,14 +3475,17 @@
         <column caption='healthy param' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Healthy Index&quot;'>
           <calculation class='tableau' formula='&quot;Healthy Index&quot;' />
         </column>
-        <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Wealthy Index&quot;'>
-          <calculation class='tableau' formula='&quot;Wealthy Index&quot;' />
+        <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Children in Poverty&quot;'>
+          <calculation class='tableau' formula='&quot;Children in Poverty&quot;' />
         </column>
         <column caption='Wise param' datatype='string' datatype-customized='true' name='[Parameter 4]' param-domain-type='list' role='measure' type='nominal' value='&quot;Wise Index&quot;'>
           <calculation class='tableau' formula='&quot;Wise Index&quot;' />
         </column>
         <column caption='Distress Param' datatype='string' name='[Parameter 5]' param-domain-type='list' role='measure' type='nominal' value='&quot;Distress Index&quot;'>
           <calculation class='tableau' formula='&quot;Distress Index&quot;' />
+        </column>
+        <column caption='colors' datatype='boolean' name='[Parameter 6]' param-domain-type='list' role='measure' type='nominal' value='true'>
+          <calculation class='tableau' formula='true' />
         </column>
       </datasource-dependencies>
       <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
@@ -3593,8 +3725,8 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10514836.061386446' min='-11391624.460459437' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='4937838.7108086338' min='4223914.3384200903' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10471210.120447755' min='-11420544.509238631' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='4920407.2057807678' min='4251518.3834293596' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='map'>
             <format attr='washout' value='0.0' />
@@ -3690,6 +3822,9 @@
               <style-rule element='mark'>
                 <format attr='mark-labels-cull' value='true' />
                 <format attr='mark-labels-show' value='true' />
+                <format attr='has-halo' value='false' />
+                <format attr='mark-transparency' value='206' />
+                <format attr='has-stroke' value='true' />
               </style-rule>
             </style>
           </pane>
@@ -3717,8 +3852,8 @@
             <mapsource name='Tableau' />
           </mapsources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Wealthy Index&quot;'>
-              <calculation class='tableau' formula='&quot;Wealthy Index&quot;' />
+            <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Children in Poverty&quot;'>
+              <calculation class='tableau' formula='&quot;Children in Poverty&quot;' />
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.1b2cztz1syf9xr14tb94n0u2lmi3'>
@@ -3737,8 +3872,8 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10565704.454690075' min='-11401219.946574353' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='4903281.2890998386' min='4323786.1212283066' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10480135.875997834' min='-11446567.693941234' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='4931666.5834804941' min='4261370.731380282' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='map'>
             <format attr='washout' value='0.0' />
@@ -3804,8 +3939,8 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10183091.522081889' min='-11499239.196508357' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='5296970.3594705453' min='4235245.260195924' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10147801.548028957' min='-11517688.365663508' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='5219301.5720883319' min='4254096.9076187909' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='map'>
             <format attr='washout' value='0.0' />
@@ -3989,6 +4124,9 @@
             <column-instance column='[Description (Sheet13)]' derivation='None' name='[none:Description (Sheet13):nk]' pivot='key' type='nominal' />
             <column-instance column='[Indicator (Sheet13)]' derivation='None' name='[none:Indicator (Sheet13):nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
+          <_.fcp.SingleValuePerNestSorting.true...single-value-per-nest-shelf-sorts>
+            <single-value-per-nest-shelf-sort dimension-to-sort='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Indicator (Sheet13):nk]' direction='DESC' measure-to-sort-by='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Indicator (Sheet13):nk]' shelf='rows' />
+          </_.fcp.SingleValuePerNestSorting.true...single-value-per-nest-shelf-sorts>
           <aggregation value='true' />
         </view>
         <style>
@@ -4121,8 +4259,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='90' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='89' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='94' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='93' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone forceUpdate='true' h='15030' id='11' type-v2='text' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run fontalignment='1' fontcolor='#ffffff' fontname='Sitka Small Semibold' fontsize='20'>Dashboard Index</run>
@@ -4202,8 +4340,8 @@
         <datasource name='Parameters' />
       </datasources>
       <datasource-dependencies datasource='Parameters'>
-        <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Wealthy Index&quot;'>
-          <calculation class='tableau' formula='&quot;Wealthy Index&quot;' />
+        <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Children in Poverty&quot;'>
+          <calculation class='tableau' formula='&quot;Children in Poverty&quot;' />
           <members>
             <member value='&quot;Wealthy Index&quot;' />
             <member value='&quot;Income Ratio&quot;' />
@@ -4276,8 +4414,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='86' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='85' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='90' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='89' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone forceUpdate='true' h='15030' id='11' type-v2='text' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run fontalignment='1' fontcolor='#ffffff' fontname='Sitka Small Semibold' fontsize='20'>Dashboard Index</run>
@@ -4431,8 +4569,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='90' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='89' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='94' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='93' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone forceUpdate='true' h='15030' id='11' type-v2='text' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run fontalignment='1' fontcolor='#ffffff' fontname='Sitka Small Semibold' fontsize='20'>Dashboard Index</run>
@@ -4590,8 +4728,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='94' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='93' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='98' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='97' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone forceUpdate='true' h='15030' id='11' type-v2='text' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run fontalignment='1' fontcolor='#ffffff' fontname='Sitka Small Semibold' fontsize='20'>Dashboard Index</run>
@@ -4654,7 +4792,7 @@
       </devicelayouts>
       <simple-id uuid='{51FCC4E6-5410-493C-9390-0C32C4CC762A}' />
     </dashboard>
-    <dashboard name='Story 2' type='storyboard'>
+    <dashboard name='distress story' type='storyboard'>
       <style />
       <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' />
       <zones>
@@ -4665,7 +4803,7 @@
             <zone h='82676' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='98426' x='787' y='16494'>
               <flipboard active-id='1' nav-type='caption' show-nav-arrows='true'>
                 <story-points>
-                  <story-point captured-sheet='' id='1' />
+                  <story-point caption='Distress Index' captured-sheet='Dash 4' id='1' />
                 </story-points>
               </flipboard>
             </zone>
@@ -4678,7 +4816,7 @@
           </zone-style>
         </zone>
       </zones>
-      <simple-id uuid='{420CA57C-89F6-40F6-8BEC-ED4AF67AE6F1}' />
+      <simple-id uuid='{132839EA-CE0E-4C5B-BEA7-F54DC49DD2F3}' />
     </dashboard>
     <dashboard name='maps' type='storyboard'>
       <style />
@@ -4688,7 +4826,7 @@
           <zone h='98340' id='1' param='vert' removable='false' type-v2='layout-flow' w='98426' x='787' y='830'>
             <zone h='10477' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='98426' x='787' y='830' />
             <zone h='87863' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='98426' x='787' y='11307'>
-              <flipboard active-id='2' nav-type='caption' show-nav-arrows='false'>
+              <flipboard active-id='1' nav-type='caption' show-nav-arrows='false'>
                 <story-points>
                   <story-point caption='Healthy Index' captured-sheet='Dash 1' id='1'>
                     <capturedDeltas>
@@ -4703,9 +4841,6 @@
                       <worksheet name='healthy table'>
                         <selection-collection />
                       </worksheet>
-                      <datasource name='Parameters'>
-                        <column name='[Parameter 2]' value='&quot;Low Birthweight&quot;' />
-                      </datasource>
                     </capturedDeltas>
                   </story-point>
                   <story-point caption='Wealthy Index' captured-sheet='Dash 2' id='2'>
@@ -4718,16 +4853,23 @@
                           </style-rule>
                         </style>
                       </worksheet>
+                      <datasource name='Parameters'>
+                        <column name='[Parameter 3]' value='&quot;Wealthy Index&quot;' />
+                      </datasource>
                     </capturedDeltas>
                   </story-point>
                   <story-point caption='Wise Index' captured-sheet='Dash 3' id='3'>
                     <capturedDeltas>
-                      <datasource name='Parameters'>
-                        <column name='[Parameter 4]' value='&quot;Completed Highschool&quot;' />
-                      </datasource>
+                      <worksheet name='Wise map'>
+                        <style delta-type='added'>
+                          <style-rule element='axis'>
+                            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='5040403.6787642352' min='4366518.7427069983' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+                            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10471357.202259922' min='-11622821.453315934' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+                          </style-rule>
+                        </style>
+                      </worksheet>
                     </capturedDeltas>
                   </story-point>
-                  <story-point caption='Distress Index' captured-sheet='Dash 4' id='4' />
                 </story-points>
               </flipboard>
             </zone>
@@ -4743,11 +4885,16 @@
       <simple-id uuid='{3BC263AC-BB56-4272-81CD-ED36868CBDA7}' />
     </dashboard>
   </dashboards>
-  <windows source-height='44'>
+  <windows saved-dpi-scale-factor='1.5' source-height='44'>
     <window class='dashboard' name='maps'>
       <viewpoints />
       <active id='-1' />
       <simple-id uuid='{BFC63972-FF1E-4BE2-8ADA-E6D4C17E17D8}' />
+    </window>
+    <window class='dashboard' maximized='true' name='distress story'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{2E44ADC6-5983-4762-A311-F09166EF3F91}' />
     </window>
     <window class='dashboard' name='Dash 1'>
       <viewpoints>
@@ -4814,8 +4961,8 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1836342760276148227:nk]' type='color' />
             <card mode='compact' param='[Parameters].[Parameter 2]' type='parameter' />
+            <card pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1836342760276148227:nk]' type='color' />
           </strip>
         </edge>
       </cards>
@@ -4852,7 +4999,7 @@
         </edge>
       </cards>
       <viewpoint>
-        <default-map-tool-selection tool='2' />
+        <default-map-tool-selection tool='1' />
       </viewpoint>
       <simple-id uuid='{02CBBEA0-4058-478C-9581-5386A38990A9}' />
     </window>
@@ -4916,7 +5063,7 @@
         </edge>
       </cards>
       <viewpoint>
-        <default-map-tool-selection tool='2' />
+        <default-map-tool-selection tool='1' />
       </viewpoint>
       <simple-id uuid='{AECF6B86-AC22-4850-B042-84E33CA6E8DD}' />
     </window>
@@ -4999,11 +5146,6 @@
         </edge>
       </cards>
       <simple-id uuid='{AA37655F-4FC0-48B3-B86B-7359105B0CB7}' />
-    </window>
-    <window class='dashboard' maximized='true' name='Story 2'>
-      <viewpoints />
-      <active id='-1' />
-      <simple-id uuid='{DC45FCC1-7E5F-410C-92C0-FC1FA0BB9024}' />
     </window>
   </windows>
 </workbook>

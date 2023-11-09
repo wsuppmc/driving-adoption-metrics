@@ -100,7 +100,7 @@
   {
     "objectID": "different-page/healthy-wealthy-wise.html",
     "href": "different-page/healthy-wealthy-wise.html",
-    "title": "Healthy, Wealthy, & Wise",
+    "title": "Healthy, Wealthy, and Wise Index",
     "section": "",
     "text": "South Kansas Coalition counties constitute 11 of the 26 counties in the 4th quartile of the Healthy Index.\nSixteen South Kansas Coalition counties fall within the 4th quartile of the Wealthy Index.\nThe 4th quartile of the Wise Index contains 8 South Kansas Coaltion counties."
   },
@@ -128,16 +128,16 @@
   {
     "objectID": "different-page/healthy-wealthy-wise.html#methodology",
     "href": "different-page/healthy-wealthy-wise.html#methodology",
-    "title": "Healthy, Wealthy, & Wise",
+    "title": "Healthy, Wealthy, and Wise Index",
     "section": "Methodology",
-    "text": "Methodology\nThe Healthy, Wealthy, and Wise indices combine multiple indicators into a single, comparative measure of economic well-being. The index is constructed from the U.S. Census Bureau’s American Community Survey (ACS) 5-Year Estimates and County Business Patterns (CBP) datasets. fig-healthy, fig-wealthy, and fig-wise contain the indicators for the respective index.\nThe individual indicators are individually normalized across 105 counties on a scale of 0 to 100, where 100 represents the most distressed county and 0 represents the least distressed county. The individual indicators are normalized using the following formula:\n\\[\\text{Index Indicator}_{ij} = \\frac{X_{ij}-\\text{min}_{(\\text{of } 105)}\\{X_i\\}}{\\text{max}_{(\\text{of } 105)}\\{X_i\\}-\\text{min}_{(\\text{of } 105)}\\{X_i\\}} \\times 100,\\]\nwhere \\(X_{ij}\\) is the value of indicator \\(i\\) for county \\(j\\). The final index value results from taking the geometric mean of the respective indicators. To handle the zeros, one is added to each normalized indicator; therefore, one is then subtracted from the calculated mean."
+    "text": "Methodology\nThe Healthy, Wealthy, and Wise indices combine multiple indicators into a single, comparative measure of economic well-being. The index is constructed from the U.S. Census Bureau's American Community Survey (ACS) 5-Year Estimates and County Business Patterns (CBP) datasets. fig-healthy, fig-wealthy, and fig-wise contain the indicators for the respective index.\nThe individual indicators are individually normalized across 105 counties on a scale of 0 to 100, where 100 represents the most distressed county and 0 represents the least distressed county. The individual indicators are normalized using the following formula:\n\n\n\n\n\n\n\\[\\text{Index Indicator}_{ij} = \\frac{\\text{max}_{(\\text{of } 105)}\\{X_i\\}-X_{ij}}{\\text{max}_{(\\text{of } 105)}\\{X_i\\}-\\text{min}_{(\\text{of } 105)}\\{X_i\\}} \\times 100. \\]"
   },
   {
     "objectID": "different-page/healthy-wealthy-wise.html#results",
     "href": "different-page/healthy-wealthy-wise.html#results",
-    "title": "Healthy, Wealthy, & Wise",
+    "title": "Healthy, Wealthy, and Wise Index",
     "section": "Results",
-    "text": "Results\n\n\n\n\n\n    IFrame Example"
+    "text": "Results"
   },
   {
     "objectID": "different-page/healthy-wealthy-wise.html#section",
@@ -219,7 +219,7 @@
   {
     "objectID": "different-page/healthy-wealthy-wise.html#key-insights",
     "href": "different-page/healthy-wealthy-wise.html#key-insights",
-    "title": "Healthy, Wealthy, & Wise",
+    "title": "Healthy, Wealthy, and Wise Index",
     "section": "",
     "text": "South Kansas Coalition counties constitute 11 of the 26 counties in the 4th quartile of the Healthy Index.\nSixteen South Kansas Coalition counties fall within the 4th quartile of the Wealthy Index.\nThe 4th quartile of the Wise Index contains 8 South Kansas Coaltion counties."
   },
