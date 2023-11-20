@@ -33,7 +33,10 @@ from med_inc_rate import med_inc_rate_fig
 from emp_chg import emp_chg_fig
 from est_chg import est_chg_fig
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 health_maps = {
     "Health Indicator": health_indicator_fig,
     "% Fair or Poor Health": fair_poor_fig,
@@ -63,14 +66,24 @@ wise_maps = {
 }
 
 distress_maps = {
+<<<<<<< Updated upstream
     "Distress Indicator":distress_fig,
     "No Highschool Diploma": hs_lower_fig,
+=======
+    "Distress Index": distress_fig,
+    "% No High School Diploma": hs_lower_fig,
+>>>>>>> Stashed changes
     "Housing Vacancy Rate": vacancy_rate_fig,
     "Unemployment Rate": unemployment_rate_fig,
     "Poverty Rate": poverty_rate_fig,
     "Median Income Ratio": med_inc_rate_fig,
+<<<<<<< Updated upstream
     "Change in Employement": emp_chg_fig,
     "Change in Establishment": est_chg_fig
+=======
+    "Change in Employment": emp_chg_fig,
+    "Change in Establishments": est_chg_fig
+>>>>>>> Stashed changes
 }
 
 server = flask.Flask(__name__)
@@ -122,7 +135,11 @@ def update_map_options(index_type):
         value = list(wise_maps.keys())[0]
     elif index_type == 'distress':
         options = [{'label': option, 'value': option} for option in distress_maps.keys()]
+<<<<<<< Updated upstream
         value = list(distress_maps.keys())[0]
+=======
+        value = list(wise_maps.keys())[0]
+>>>>>>> Stashed changes
     else:
         options = []
         value = None

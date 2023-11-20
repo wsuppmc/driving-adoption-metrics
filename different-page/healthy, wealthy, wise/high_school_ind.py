@@ -23,7 +23,7 @@ def generate_high_school_ind_fig():
     with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
         counties = json.load(response)
 
-    df = pd.read_csv('data/healthy-wealthy-wise-data.csv', dtype={'fips': 'str'})
+    df = pd.read_csv('/data/healthy-wealthy-wise-data.csv', dtype={'fips': 'str'})
     df = df.sort_values(by=['high_school_quartile'])
 
     colorscales = [

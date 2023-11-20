@@ -22,7 +22,7 @@
     <WindowsPersistSimpleIdentifiers />
     <ZoneBackgroundTransparency />
   </document-format-change-manifest>
-  <repository-location id='Tableaudata_16980976681680' path='/workbooks' revision='1.1' />
+  <repository-location id='Tableaudata_16980976681680' path='/workbooks' revision='1.0' />
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
     <preference name='ui.shelf.height' value='26' />
@@ -59,8 +59,8 @@
           <member value='&quot;\% Uninsured&quot;' />
         </members>
       </column>
-      <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Children in Poverty&quot;'>
-        <calculation class='tableau' formula='&quot;Children in Poverty&quot;' />
+      <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Wealthy Index&quot;'>
+        <calculation class='tableau' formula='&quot;Wealthy Index&quot;' />
         <members>
           <member value='&quot;Wealthy Index&quot;' />
           <member value='&quot;Income Ratio&quot;' />
@@ -345,6 +345,7 @@
           <map key='[wise_index]' value='[healthy-wealthy-wise-data].[wise_index]' />
           <map key='[wise_quartile]' value='[healthy-wealthy-wise-data].[wise_quartile]' />
         </cols>
+        <refresh increment-key='' incremental-updates='false' />
         <metadata-records>
           <metadata-record class='capability'>
             <remote-name />
@@ -1867,7 +1868,7 @@
         </groupfilter>
       </group>
       <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
-        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/k332z234/Documents/driving-adoption-metrics/different-page/2020-distress-index-data (Multiple Connections).hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/k332z234/Documents/driving-adoption-metrics/different-page/2020-distress-index-data (Multiple Connections).hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='10/23/2023 09:47:30 PM' username='tableau_internal_user'>
           <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='2020-distress-index-data_55AB738920B34468805B3D79A707D313' table='[Extract].[2020-distress-index-data_55AB738920B34468805B3D79A707D313]' type='table' />
           <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
             <relation name='2020-distress-index-data_55AB738920B34468805B3D79A707D313' table='[Extract].[2020-distress-index-data_55AB738920B34468805B3D79A707D313]' type='table' />
@@ -1959,6 +1960,9 @@
             <map key='[wise_index]' value='[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70].[wise_index]' />
             <map key='[wise_quartile]' value='[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70].[wise_quartile]' />
           </cols>
+          <refresh increment-key='' incremental-updates='false'>
+            <refresh-event add-from-file-path='2020-distress-index-data (Multiple Connections)' increment-value='%null%' refresh-type='create' rows-inserted='232' timestamp-start='2023-10-23 21:47:26.731' />
+          </refresh>
           <metadata-records>
             <metadata-record class='column'>
               <remote-name>fips</remote-name>
@@ -1972,6 +1976,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>105</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>county</remote-name>
@@ -1986,6 +1991,7 @@
               <approx-count>105</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>hs_lower</remote-name>
@@ -1999,6 +2005,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>73</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>unemployment_rate</remote-name>
@@ -2012,6 +2019,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>52</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>poverty_rate</remote-name>
@@ -2025,6 +2033,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>73</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>med_inc_rate</remote-name>
@@ -2038,6 +2047,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>93</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>est_chg</remote-name>
@@ -2051,6 +2061,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>67</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>emp_chg</remote-name>
@@ -2064,6 +2075,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>82</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>vacancy_rate</remote-name>
@@ -2077,6 +2089,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>84</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>distress_index</remote-name>
@@ -2090,6 +2103,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>105</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>index_quartile</remote-name>
@@ -2104,6 +2118,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>hs_quartile</remote-name>
@@ -2118,6 +2133,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>vacancy_quartile</remote-name>
@@ -2132,6 +2148,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>unemp_quartile</remote-name>
@@ -2146,6 +2163,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>poverty_quartile</remote-name>
@@ -2160,6 +2178,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>med_quartile</remote-name>
@@ -2174,6 +2193,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>est_quartile</remote-name>
@@ -2188,6 +2208,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>emp_quartile</remote-name>
@@ -2202,6 +2223,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[2020-distress-index-data_55AB738920B34468805B3D79A707D313]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Indicator</remote-name>
@@ -2216,6 +2238,7 @@
               <approx-count>7</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_48117139BD1749E781E1DDCD8B3A9266]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Description</remote-name>
@@ -2230,6 +2253,7 @@
               <approx-count>7</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_48117139BD1749E781E1DDCD8B3A9266]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Source</remote-name>
@@ -2244,6 +2268,7 @@
               <approx-count>2</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_48117139BD1749E781E1DDCD8B3A9266]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>fips</remote-name>
@@ -2257,6 +2282,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>105</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>county</remote-name>
@@ -2271,6 +2297,7 @@
               <approx-count>105</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>fair_poor</remote-name>
@@ -2284,6 +2311,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>10</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>unhealthy</remote-name>
@@ -2297,6 +2325,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>14</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>unhealthy_mental</remote-name>
@@ -2310,6 +2339,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>11</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>low_birth</remote-name>
@@ -2323,6 +2353,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>9</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>smoking</remote-name>
@@ -2336,6 +2367,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>10</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>obesity</remote-name>
@@ -2349,6 +2381,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>14</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>inactive</remote-name>
@@ -2362,6 +2395,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>15</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>drinking</remote-name>
@@ -2375,6 +2409,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>uninsured</remote-name>
@@ -2388,6 +2423,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>17</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>unemp</remote-name>
@@ -2401,6 +2437,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>30</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>child_pov</remote-name>
@@ -2414,6 +2451,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>19</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>inc_ratio</remote-name>
@@ -2427,6 +2465,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>24</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>high_school</remote-name>
@@ -2440,6 +2479,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>21</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>some_college</remote-name>
@@ -2453,6 +2493,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>36</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>soc_assoc</remote-name>
@@ -2466,6 +2507,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>87</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>fair_poor_ind</remote-name>
@@ -2479,6 +2521,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>10</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>unhealthy_ind</remote-name>
@@ -2492,6 +2535,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>14</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>unhealthy_mental_ind</remote-name>
@@ -2505,6 +2549,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>11</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>low_birth_ind</remote-name>
@@ -2518,6 +2563,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>9</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>smoking_ind</remote-name>
@@ -2531,6 +2577,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>10</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>obesity_ind</remote-name>
@@ -2544,6 +2591,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>14</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>inactive_ind</remote-name>
@@ -2557,6 +2605,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>15</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>drinking_ind</remote-name>
@@ -2570,6 +2619,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>uninsured_ind</remote-name>
@@ -2583,6 +2633,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>17</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>unemp_ind</remote-name>
@@ -2596,6 +2647,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>30</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>child_pov_ind</remote-name>
@@ -2609,6 +2661,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>19</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>inc_ratio_ind</remote-name>
@@ -2622,6 +2675,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>24</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>high_school_ind</remote-name>
@@ -2635,6 +2689,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>21</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>some_college_ind</remote-name>
@@ -2648,6 +2703,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>36</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>soc_assoc_ind</remote-name>
@@ -2661,6 +2717,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>87</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>healthy_index</remote-name>
@@ -2674,6 +2731,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>105</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>wealthy_index</remote-name>
@@ -2687,6 +2745,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>102</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>wise_index</remote-name>
@@ -2700,6 +2759,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>105</approx-count>
               <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>healthy_quartile</remote-name>
@@ -2714,6 +2774,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>wealthy_quartile</remote-name>
@@ -2728,6 +2789,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>wise_quartile</remote-name>
@@ -2742,6 +2804,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>fair_poor_quartile</remote-name>
@@ -2756,6 +2819,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>unhealthy_quartile</remote-name>
@@ -2770,6 +2834,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>unhealthy_mental_quartile</remote-name>
@@ -2784,6 +2849,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>low_birth_quartile</remote-name>
@@ -2798,6 +2864,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>smoking_quartile</remote-name>
@@ -2812,6 +2879,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>obesity_quartile</remote-name>
@@ -2826,6 +2894,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>inactive_quartile</remote-name>
@@ -2840,6 +2909,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>drinking_quartile</remote-name>
@@ -2854,6 +2924,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>uninsured_quartile</remote-name>
@@ -2868,6 +2939,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>unemp_quartile</remote-name>
@@ -2882,6 +2954,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>child_pov_quartile</remote-name>
@@ -2896,6 +2969,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>inc_ratio_quartile</remote-name>
@@ -2910,6 +2984,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>high_school_quartile</remote-name>
@@ -2924,6 +2999,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>some_college_quartile</remote-name>
@@ -2938,6 +3014,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>soc_assoc_quartile</remote-name>
@@ -2952,6 +3029,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[healthy-wealthy-wise-data_78F9E7B40A334EC19739BCA49C6B9C70]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Indicator</remote-name>
@@ -2966,6 +3044,7 @@
               <approx-count>9</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_3A776AB2F6B048FDA216AD1A47AE853D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Description</remote-name>
@@ -2980,6 +3059,7 @@
               <approx-count>9</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_3A776AB2F6B048FDA216AD1A47AE853D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Indicator</remote-name>
@@ -2994,6 +3074,7 @@
               <approx-count>3</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_41ADFD0181A040A8A00586D16DC1B664]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Description</remote-name>
@@ -3008,6 +3089,7 @@
               <approx-count>3</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_41ADFD0181A040A8A00586D16DC1B664]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Indicator</remote-name>
@@ -3022,6 +3104,7 @@
               <approx-count>3</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_49FC2971810B44169ECA479ED7B432E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Description</remote-name>
@@ -3036,6 +3119,7 @@
               <approx-count>3</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_49FC2971810B44169ECA479ED7B432E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
           </metadata-records>
         </connection>
@@ -3475,8 +3559,8 @@
         <column caption='healthy param' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Healthy Index&quot;'>
           <calculation class='tableau' formula='&quot;Healthy Index&quot;' />
         </column>
-        <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Children in Poverty&quot;'>
-          <calculation class='tableau' formula='&quot;Children in Poverty&quot;' />
+        <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Wealthy Index&quot;'>
+          <calculation class='tableau' formula='&quot;Wealthy Index&quot;' />
         </column>
         <column caption='Wise param' datatype='string' datatype-customized='true' name='[Parameter 4]' param-domain-type='list' role='measure' type='nominal' value='&quot;Wise Index&quot;'>
           <calculation class='tableau' formula='&quot;Wise Index&quot;' />
@@ -3725,8 +3809,8 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10471210.120447755' min='-11420544.509238631' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='4920407.2057807678' min='4251518.3834293596' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10514836.061386446' min='-11391624.460459437' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='4937838.7108086338' min='4223914.3384200903' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='map'>
             <format attr='washout' value='0.0' />
@@ -3852,8 +3936,8 @@
             <mapsource name='Tableau' />
           </mapsources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Children in Poverty&quot;'>
-              <calculation class='tableau' formula='&quot;Children in Poverty&quot;' />
+            <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Wealthy Index&quot;'>
+              <calculation class='tableau' formula='&quot;Wealthy Index&quot;' />
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.1b2cztz1syf9xr14tb94n0u2lmi3'>
@@ -3872,8 +3956,8 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10480135.875997834' min='-11446567.693941234' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='4931666.5834804941' min='4261370.731380282' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10582098.86596434' min='-11548530.68390774' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='4893541.2903054822' min='4223245.4382052701' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='map'>
             <format attr='washout' value='0.0' />
@@ -3939,8 +4023,8 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10147801.548028957' min='-11517688.365663508' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='5219301.5720883319' min='4254096.9076187909' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10183091.522081889' min='-11499239.196508357' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='5296970.3594705453' min='4235245.260195924' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='map'>
             <format attr='washout' value='0.0' />
@@ -4162,6 +4246,32 @@
     </worksheet>
   </worksheets>
   <dashboards>
+    <dashboard name='DIstress index' type='storyboard'>
+      <style />
+      <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' />
+      <zones>
+        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98340' id='1' param='vert' removable='false' type-v2='layout-flow' w='98426' x='787' y='830'>
+            <zone h='5187' id='3' type-v2='title' w='98426' x='787' y='830' />
+            <zone h='10477' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='98426' x='787' y='6017' />
+            <zone h='82676' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='98426' x='787' y='16494'>
+              <flipboard active-id='1' nav-type='caption' show-nav-arrows='true'>
+                <story-points>
+                  <story-point caption='Distress Index' captured-sheet='Dash 4' id='1' />
+                </story-points>
+              </flipboard>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <simple-id uuid='{B4CBDF4E-D990-457B-90F1-615AB3E86AC0}' />
+    </dashboard>
     <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dash 1'>
       <style>
         <style-rule element='parameter-ctrl'>
@@ -4209,7 +4319,7 @@
               </zone>
             </zone>
             <zone fixed-size='189' h='53595' id='49' is-fixed='true' param='vert' type-v2='layout-flow' w='18900' x='80300' y='16030'>
-              <zone h='16750' id='51' name='Healthy map' pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1836342760276148227:nk]' type-v2='color' w='18900' x='80300' y='16030'>
+              <zone h='29250' id='51' name='Healthy map' pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[County (Healthy-Wealthy-Wise-Data) (group)]&#10;[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1836342760276148227:nk]' type-v2='color' w='18900' x='80300' y='16030'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4217,7 +4327,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='4250' id='52' mode='compact' param='[Parameters].[Parameter 2]' show-title='false' type-v2='paramctrl' w='18900' x='80300' y='32780'>
+              <zone h='4250' id='52' mode='compact' param='[Parameters].[Parameter 2]' show-title='false' type-v2='paramctrl' w='18900' x='80300' y='45280'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4259,8 +4369,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='94' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='93' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='96' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='95' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone forceUpdate='true' h='15030' id='11' type-v2='text' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run fontalignment='1' fontcolor='#ffffff' fontname='Sitka Small Semibold' fontsize='20'>Dashboard Index</run>
@@ -4283,7 +4393,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='16750' id='51' name='Healthy map' pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1836342760276148227:nk]' type-v2='color' w='18900' x='80300' y='16030'>
+                <zone h='29250' id='51' name='Healthy map' pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[County (Healthy-Wealthy-Wise-Data) (group)]&#10;[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1836342760276148227:nk]' type-v2='color' w='18900' x='80300' y='16030'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4292,7 +4402,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='4250' id='52' mode='compact' param='[Parameters].[Parameter 2]' show-title='false' type-v2='paramctrl' w='18900' x='80300' y='32780'>
+                <zone h='4250' id='52' mode='compact' param='[Parameters].[Parameter 2]' show-title='false' type-v2='paramctrl' w='18900' x='80300' y='45280'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4340,8 +4450,8 @@
         <datasource name='Parameters' />
       </datasources>
       <datasource-dependencies datasource='Parameters'>
-        <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Children in Poverty&quot;'>
-          <calculation class='tableau' formula='&quot;Children in Poverty&quot;' />
+        <column caption='Wealthy param' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Wealthy Index&quot;'>
+          <calculation class='tableau' formula='&quot;Wealthy Index&quot;' />
           <members>
             <member value='&quot;Wealthy Index&quot;' />
             <member value='&quot;Income Ratio&quot;' />
@@ -4364,7 +4474,7 @@
               </zone>
             </zone>
             <zone fixed-size='214' h='60345' id='49' is-fixed='true' param='vert' type-v2='layout-flow' w='21400' x='77800' y='16030'>
-              <zone h='16750' id='64' name='Wealthy map' pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1836342760273096706:nk]' type-v2='color' w='21400' x='77800' y='16030'>
+              <zone h='26125' id='64' name='Wealthy map' pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[County (Healthy-Wealthy-Wise-Data) (group)]&#10;[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1836342760273096706:nk]' type-v2='color' w='21400' x='77800' y='16030'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4372,7 +4482,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='4250' id='65' mode='compact' param='[Parameters].[Parameter 3]' show-title='false' type-v2='paramctrl' w='21400' x='77800' y='32780'>
+              <zone h='4250' id='65' mode='compact' param='[Parameters].[Parameter 3]' show-title='false' type-v2='paramctrl' w='21400' x='77800' y='42155'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4414,8 +4524,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='90' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='89' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='92' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='91' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone forceUpdate='true' h='15030' id='11' type-v2='text' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run fontalignment='1' fontcolor='#ffffff' fontname='Sitka Small Semibold' fontsize='20'>Dashboard Index</run>
@@ -4438,7 +4548,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='16750' id='64' name='Wealthy map' pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1836342760273096706:nk]' type-v2='color' w='21400' x='77800' y='16030'>
+                <zone h='26125' id='64' name='Wealthy map' pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[County (Healthy-Wealthy-Wise-Data) (group)]&#10;[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1836342760273096706:nk]' type-v2='color' w='21400' x='77800' y='16030'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4447,7 +4557,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='4250' id='65' mode='compact' param='[Parameters].[Parameter 3]' show-title='false' type-v2='paramctrl' w='21400' x='77800' y='32780'>
+                <zone h='4250' id='65' mode='compact' param='[Parameters].[Parameter 3]' show-title='false' type-v2='paramctrl' w='21400' x='77800' y='42155'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4519,7 +4629,7 @@
               </zone>
             </zone>
             <zone fixed-size='189' h='60470' id='49' is-fixed='true' param='vert' type-v2='layout-flow' w='18900' x='80300' y='16030'>
-              <zone h='16750' id='67' name='Wise map' pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1970324848102776834:nk]' type-v2='color' w='18900' x='80300' y='16030'>
+              <zone h='29250' id='67' name='Wise map' pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[County (Healthy-Wealthy-Wise-Data) (group)]&#10;[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1970324848102776834:nk]' type-v2='color' w='18900' x='80300' y='16030'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4527,7 +4637,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone fixed-size='32' h='5000' id='68' is-fixed='true' mode='compact' param='[Parameters].[Parameter 4]' show-title='false' type-v2='paramctrl' w='18900' x='80300' y='32780'>
+              <zone fixed-size='32' h='5000' id='68' is-fixed='true' mode='compact' param='[Parameters].[Parameter 4]' show-title='false' type-v2='paramctrl' w='18900' x='80300' y='45280'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4569,8 +4679,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='94' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='93' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='96' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='95' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone forceUpdate='true' h='15030' id='11' type-v2='text' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run fontalignment='1' fontcolor='#ffffff' fontname='Sitka Small Semibold' fontsize='20'>Dashboard Index</run>
@@ -4593,7 +4703,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='16750' id='67' name='Wise map' pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1970324848102776834:nk]' type-v2='color' w='18900' x='80300' y='16030'>
+                <zone h='29250' id='67' name='Wise map' pane-specification-id='0' param='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[County (Healthy-Wealthy-Wise-Data) (group)]&#10;[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[none:Calculation_1970324848102776834:nk]' type-v2='color' w='18900' x='80300' y='16030'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4602,7 +4712,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='32' h='5000' id='68' mode='compact' param='[Parameters].[Parameter 4]' show-title='false' type-v2='paramctrl' w='18900' x='80300' y='32780'>
+                <zone fixed-size='32' h='5000' id='68' mode='compact' param='[Parameters].[Parameter 4]' show-title='false' type-v2='paramctrl' w='18900' x='80300' y='45280'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4728,8 +4838,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='98' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='97' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='100' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='99' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone forceUpdate='true' h='15030' id='11' type-v2='text' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run fontalignment='1' fontcolor='#ffffff' fontname='Sitka Small Semibold' fontsize='20'>Dashboard Index</run>
@@ -4792,32 +4902,6 @@
       </devicelayouts>
       <simple-id uuid='{51FCC4E6-5410-493C-9390-0C32C4CC762A}' />
     </dashboard>
-    <dashboard name='distress story' type='storyboard'>
-      <style />
-      <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' />
-      <zones>
-        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98340' id='1' param='vert' removable='false' type-v2='layout-flow' w='98426' x='787' y='830'>
-            <zone h='5187' id='3' type-v2='title' w='98426' x='787' y='830' />
-            <zone h='10477' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='98426' x='787' y='6017' />
-            <zone h='82676' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='98426' x='787' y='16494'>
-              <flipboard active-id='1' nav-type='caption' show-nav-arrows='true'>
-                <story-points>
-                  <story-point caption='Distress Index' captured-sheet='Dash 4' id='1' />
-                </story-points>
-              </flipboard>
-            </zone>
-          </zone>
-          <zone-style>
-            <format attr='border-color' value='#000000' />
-            <format attr='border-style' value='none' />
-            <format attr='border-width' value='0' />
-            <format attr='margin' value='8' />
-          </zone-style>
-        </zone>
-      </zones>
-      <simple-id uuid='{132839EA-CE0E-4C5B-BEA7-F54DC49DD2F3}' />
-    </dashboard>
     <dashboard name='maps' type='storyboard'>
       <style />
       <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' />
@@ -4826,7 +4910,7 @@
           <zone h='98340' id='1' param='vert' removable='false' type-v2='layout-flow' w='98426' x='787' y='830'>
             <zone h='10477' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='98426' x='787' y='830' />
             <zone h='87863' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='98426' x='787' y='11307'>
-              <flipboard active-id='1' nav-type='caption' show-nav-arrows='false'>
+              <flipboard active-id='2' nav-type='caption' show-nav-arrows='false'>
                 <story-points>
                   <story-point caption='Healthy Index' captured-sheet='Dash 1' id='1'>
                     <capturedDeltas>
@@ -4841,6 +4925,9 @@
                       <worksheet name='healthy table'>
                         <selection-collection />
                       </worksheet>
+                      <datasource name='Parameters'>
+                        <column name='[Parameter 2]' value='&quot;Low Birthweight&quot;' />
+                      </datasource>
                     </capturedDeltas>
                   </story-point>
                   <story-point caption='Wealthy Index' captured-sheet='Dash 2' id='2'>
@@ -4853,21 +4940,13 @@
                           </style-rule>
                         </style>
                       </worksheet>
-                      <datasource name='Parameters'>
-                        <column name='[Parameter 3]' value='&quot;Wealthy Index&quot;' />
-                      </datasource>
                     </capturedDeltas>
                   </story-point>
                   <story-point caption='Wise Index' captured-sheet='Dash 3' id='3'>
                     <capturedDeltas>
-                      <worksheet name='Wise map'>
-                        <style delta-type='added'>
-                          <style-rule element='axis'>
-                            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='5040403.6787642352' min='4366518.7427069983' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
-                            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10471357.202259922' min='-11622821.453315934' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-                          </style-rule>
-                        </style>
-                      </worksheet>
+                      <datasource name='Parameters'>
+                        <column name='[Parameter 4]' value='&quot;Completed Highschool&quot;' />
+                      </datasource>
                     </capturedDeltas>
                   </story-point>
                 </story-points>
@@ -4886,15 +4965,15 @@
     </dashboard>
   </dashboards>
   <windows saved-dpi-scale-factor='1.5' source-height='44'>
-    <window class='dashboard' name='maps'>
+    <window class='dashboard' maximized='true' name='maps'>
       <viewpoints />
       <active id='-1' />
       <simple-id uuid='{BFC63972-FF1E-4BE2-8ADA-E6D4C17E17D8}' />
     </window>
-    <window class='dashboard' maximized='true' name='distress story'>
+    <window class='dashboard' name='DIstress index'>
       <viewpoints />
       <active id='-1' />
-      <simple-id uuid='{2E44ADC6-5983-4762-A311-F09166EF3F91}' />
+      <simple-id uuid='{C9433E75-517E-4501-B2FC-554B20F605E1}' />
     </window>
     <window class='dashboard' name='Dash 1'>
       <viewpoints>
@@ -4999,7 +5078,7 @@
         </edge>
       </cards>
       <viewpoint>
-        <default-map-tool-selection tool='1' />
+        <default-map-tool-selection tool='2' />
       </viewpoint>
       <simple-id uuid='{02CBBEA0-4058-478C-9581-5386A38990A9}' />
     </window>
@@ -5063,7 +5142,7 @@
         </edge>
       </cards>
       <viewpoint>
-        <default-map-tool-selection tool='1' />
+        <default-map-tool-selection tool='2' />
       </viewpoint>
       <simple-id uuid='{AECF6B86-AC22-4850-B042-84E33CA6E8DD}' />
     </window>
