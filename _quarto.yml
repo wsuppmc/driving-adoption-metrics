@@ -2,29 +2,32 @@ project:
   type: website
   output-dir: docs
 
-website:
+website: 
   title: "Driving Adoption: Smart Manufacturing Technologies"
   back-to-top-navigation: true
   page-footer:
     background: "#f1f1f1"
     foreground: "#164a58"
-    left:
+    left: 
       - text: "GitHub Repo"
         url: "https://github.com/wsuppmc/driving-adoption-metrics"
 
-  navbar:
+  navbar: 
     background: "#f1f1f1"
     foreground: "#164a58"
     search: true
     right: 
       - text: "Home"
-        file: "Quartopage.qmd" 
+        file: Quartopage.qmd 
 
-format:
+format: 
   html:
     embed-resources: true
     page-layout: full
     toc: false
     css: styles.css
     footer: footer.html
+    
+server:
+  port: 8050
 
