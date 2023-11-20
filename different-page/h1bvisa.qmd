@@ -2,7 +2,6 @@
 title: "H-1B Visas in Kansas"
 description: "Select measures of H-1B activity in Kansas."
 toc: false
-author: Nigel Soria
 badges: true
 categories: [immigration, seasonal, migrant workers, H-1B]
 permalink: /h-1b/

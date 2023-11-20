@@ -1,90 +1,91 @@
 ---
-title: "Data you can explore"
-editor: visual
+title: "County-Level Ecosystem Metrics"
 jupyter: python3
 ---
+
+```{python}
+#| echo: false
+print("\n")
+```
 
 ```{=html}
 <div class="grid-container">
   <div class="grid-item">
     <div class="grid-image">
-      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\covid.png" alt="Image 1">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\lightcast.png" alt="Image 6">
     </div>
-    <p class="grid-text"><a href="../different-page/Unemployment.html">Kansas Unemployment During COVID19</a></p>
-  </div>
-  <div class="grid-item">
-    <div class="grid-image">
-      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\hb1.png" alt="Image 2">
-    </div>
-    <p class="grid-text"><a href="../different-page/economic_distress.html">Economic Distress Index</a></p>
-  </div>
-  <div class="grid-item">
-    <div class="grid-image">
-      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\labor.png" alt="Image 3">
-    </div>
-    <p class="grid-text"><a href="../different-page/Unemployment_measures.html">Unemployment vs. Underemployment</a></p>
-  </div>
-  <div class="grid-item">
-    <div class="grid-image">
-      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\bar.png" alt="Image 4">
-    </div>
-    <p class="grid-text"><a href="https://kdc-ks-gov.github.io/kansas-data/stat-index/">HB1 Visa information</a></p>
-  </div>
-  <div class="grid-item">
-    <div class="grid-image">
-      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\stat.png" alt="Image 5">
-    </div>
-    <p class="grid-text"><a href="https://kdc-ks-gov.github.io/kansas-data/distress-index/">HB1 Visa information</a></p>
-  </div>
-  <div class="grid-item">
-    <div class="grid-image">
-      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\distress.png" alt="Image 6">
-    </div>
-    <p class="grid-text"><a href="../different-page/h1bvisa.html">H-1B Visas in Kansas</a></p>
+    <p class="grid-text"><a href="posts/lightcast-reports.html">Economic Overview</a></p>
  </div>
+  <div class="grid-item">
+    <div class="grid-image">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\healthy-wise-index.png" alt="Image 6">
+    </div>
+    <p class="grid-text"><a href="posts/healthy-wealthy-wise.html">Healthy, Wealthy, and Wise Index</a></p>
+ </div>
+   <div class="grid-item">
+    <div class="grid-image">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\distress_index.png" alt="Image 5">
+    </div>
+    <p class="grid-text"><a href="posts/economic-distress-index.html">Economic Distress Index</a></p>
+  </div>
+  <div class="grid-item">
+    <div class="grid-image">
+      <img src="C:\Users\k332z234\Documents\driving-adoption-metrics\pages\images\migration.png" alt="Image 4">
+    </div>
+    <p class="grid-text"><a href="posts/county-migration-flows.html">County Migration Flows</a></p>
+  </div>
+
 
 
 <style>
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 25px;
-  }
+ .grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
 
-  .grid-item {
-    background-color: white;
-    border: 4px solid black;
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 12px;
-    padding: 22px;
-    padding-bottom: 5%;
-    box-shadow: 3px 3px 5px red;
-  }
+.grid-item {
+  background-color: white;
+  border: 1px solid black;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 12px;
+  height: 300px; /* set a fixed height */
+  padding: 22px;
+  padding-bottom: 5%;
+  box-shadow: 3px 3px 5px #63666A;
+}
 
-  .grid-image {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    margin-bottom: 10px;
-  }
+.grid-image {
+  position: relative;
+  height: 70%; /* set the height to a percentage of the parent container */
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
 
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 
-  .grid-text {
-    position: relative;
-    color: black;
-    font-size: 15px;
-    margin-top: 10px;
-    padding-left: 0px
-  }
-  </style>
+.grid-text {
+  position: relative;
+  text-decoration: none;
+  color: #164a58;
+  font-size: 15px;
+  margin-top: 10px;
+  padding-left: 0px;
+  text-decoration: none;
+  font-weight: bold;
+}
+body {
+  color: #164a58;
+}
+
+
+</style>
 ```

@@ -52,6 +52,9 @@ In instances where employment or establishment estimates from the County Busines
 ```{python}
 
 #| echo: false
+#| label: fig-indicators
+#| fig-cap: Economic Distress Indicators and Descriptions
+
 import numpy as np
 import pandas as pd
 import requests
