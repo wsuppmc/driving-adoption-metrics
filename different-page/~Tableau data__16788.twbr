@@ -3821,8 +3821,13 @@
         <style>
           <style-rule element='axis'>
 <<<<<<< HEAD:different-page/~Tableau data__16788.twbr
+<<<<<<< HEAD:different-page/~Tableau data__16788.twbr
             <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10582098.86596434' min='-11548530.68390774' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
             <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='4893541.2903054822' min='4223245.4382052701' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+=======
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10565704.454690075' min='-11401219.946574353' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='4903281.2890998386' min='4323786.1212283066' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+>>>>>>> parent of 3125a7b (changes):different-page/~Tableau data__13104.twbr
 =======
             <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Longitude (generated)]' field-type='quantitative' max='-10565704.454690075' min='-11401219.946574353' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
             <encoding attr='space' class='0' field='[federated.1b2cztz1syf9xr14tb94n0u2lmi3].[Latitude (generated)]' field-type='quantitative' max='4903281.2890998386' min='4323786.1212283066' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
@@ -4236,8 +4241,13 @@
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
 <<<<<<< HEAD:different-page/~Tableau data__16788.twbr
+<<<<<<< HEAD:different-page/~Tableau data__16788.twbr
             <zone h='100000' id='96' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='98000' id='95' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+=======
+            <zone h='100000' id='90' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='89' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+>>>>>>> parent of 3125a7b (changes):different-page/~Tableau data__13104.twbr
 =======
             <zone h='100000' id='90' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='84000' id='89' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
@@ -4396,8 +4406,13 @@
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
 <<<<<<< HEAD:different-page/~Tableau data__16788.twbr
+<<<<<<< HEAD:different-page/~Tableau data__16788.twbr
             <zone h='100000' id='92' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='98000' id='91' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+=======
+            <zone h='100000' id='86' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='85' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+>>>>>>> parent of 3125a7b (changes):different-page/~Tableau data__13104.twbr
 =======
             <zone h='100000' id='86' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='84000' id='85' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
@@ -4556,8 +4571,13 @@
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
 <<<<<<< HEAD:different-page/~Tableau data__16788.twbr
+<<<<<<< HEAD:different-page/~Tableau data__16788.twbr
             <zone h='100000' id='96' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='98000' id='95' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+=======
+            <zone h='100000' id='90' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='89' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+>>>>>>> parent of 3125a7b (changes):different-page/~Tableau data__13104.twbr
 =======
             <zone h='100000' id='90' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='84000' id='89' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
@@ -4720,8 +4740,13 @@
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
 <<<<<<< HEAD:different-page/~Tableau data__16788.twbr
+<<<<<<< HEAD:different-page/~Tableau data__16788.twbr
             <zone h='100000' id='100' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='84000' id='99' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+=======
+            <zone h='100000' id='94' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='93' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+>>>>>>> parent of 3125a7b (changes):different-page/~Tableau data__13104.twbr
 =======
             <zone h='100000' id='94' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='84000' id='93' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
@@ -4789,7 +4814,10 @@
       <simple-id uuid='{51FCC4E6-5410-493C-9390-0C32C4CC762A}' />
     </dashboard>
 <<<<<<< HEAD:different-page/~Tableau data__16788.twbr
+<<<<<<< HEAD:different-page/~Tableau data__16788.twbr
 =======
+=======
+>>>>>>> parent of 3125a7b (changes):different-page/~Tableau data__13104.twbr
     <dashboard name='Story 2' type='storyboard'>
       <style />
       <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' />
@@ -4881,9 +4909,12 @@
     </dashboard>
   </dashboards>
 <<<<<<< HEAD:different-page/~Tableau data__16788.twbr
+<<<<<<< HEAD:different-page/~Tableau data__16788.twbr
   <windows saved-dpi-scale-factor='1.5' source-height='44'>
     <window class='dashboard' maximized='true' name='maps'>
 =======
+=======
+>>>>>>> parent of 3125a7b (changes):different-page/~Tableau data__13104.twbr
   <windows source-height='44'>
     <window class='dashboard' name='maps'>
 >>>>>>> parent of 3125a7b (changes):different-page/~Tableau data__13104.twbr
@@ -4892,11 +4923,14 @@
       <simple-id uuid='{BFC63972-FF1E-4BE2-8ADA-E6D4C17E17D8}' />
     </window>
 <<<<<<< HEAD:different-page/~Tableau data__16788.twbr
+<<<<<<< HEAD:different-page/~Tableau data__16788.twbr
     <window class='dashboard' name='DIstress index'>
       <viewpoints />
       <active id='-1' />
       <simple-id uuid='{C9433E75-517E-4501-B2FC-554B20F605E1}' />
     </window>
+=======
+>>>>>>> parent of 3125a7b (changes):different-page/~Tableau data__13104.twbr
 =======
 >>>>>>> parent of 3125a7b (changes):different-page/~Tableau data__13104.twbr
     <window class='dashboard' name='Dash 1'>
